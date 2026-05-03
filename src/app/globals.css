@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-raised: var(--bg-raised);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-border: var(--border);
+  --color-border-mid: var(--border-mid);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-sans), system-ui, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+}
+
+:root {
+  /* Light (Sequoia-ish) */
+  --bg: #f5f5f7;
+  --bg-surface: #ffffff;
+  --bg-raised: #fafafa;
+  --fg: #1d1d1f;
+  --fg-2: #515154;
+  --fg-3: #6e6e73;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-mid: rgba(0, 0, 0, 0.16);
+  --accent: #1e3a8f;
+
+  /* macOS traffic lights */
+  --traffic-red: #ff5f57;
+  --traffic-yellow: #febc2e;
+  --traffic-green: #28c840;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --bg-surface: #1c1c1e;
+  --bg-raised: #2c2c2e;
+  --fg: #f5f5f7;
+  --fg-2: #d2d2d7;
+  --fg-3: #a1a1a6;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-mid: rgba(255, 255, 255, 0.16);
+  --accent: #5b8def;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Wallpaper backgrounds for the device canvases */
+.wallpaper-dark {
+  background:
+    radial-gradient(ellipse 80% 50% at 30% 20%, rgba(60, 50, 90, 0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 70% 80%, rgba(70, 90, 130, 0.5) 0%, transparent 55%),
+    linear-gradient(180deg, #1a1a2e 0%, #0f0f1e 100%);
+}
+
+.wallpaper-light {
+  background:
+    radial-gradient(ellipse 80% 50% at 30% 20%, rgba(180, 160, 220, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 70% 80%, rgba(160, 200, 240, 0.5) 0%, transparent 55%),
+    linear-gradient(180deg, #e8eaf2 0%, #d8dde8 100%);
+}
