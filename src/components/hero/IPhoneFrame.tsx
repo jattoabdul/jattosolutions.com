@@ -1,6 +1,10 @@
+'use client';
+
+import { motion } from 'motion/react';
 import { Product } from '@/data/products';
 import { NotificationCard } from '@/components/products/NotificationCard';
 import { cn } from '@/lib/cn';
+import { staggerContainer, staggerItem } from '@/lib/motion';
 
 type Props = {
   products: Product[];
@@ -21,17 +25,29 @@ export function IPhoneFrame({ products, className }: Props) {
         <div className="absolute left-1/2 top-2.5 z-20 h-7 w-28 -translate-x-1/2 rounded-full bg-black" />
 
         {/* Lock screen header — time + date */}
-        <div className="relative z-10 flex flex-col items-center pt-14">
-          <p className="text-xs font-medium tracking-wider text-white/70">Saturday, May 2</p>
+        <motion.div
+          className="relative z-10 flex flex-col items-center pt-14"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-xs font-medium tracking-wider text-white/70">Sunday, May 3</p>
           <p className="mt-1 text-7xl font-light tracking-tighter text-white">9:41</p>
-        </div>
+        </motion.div>
 
         {/* Notification stack */}
-        <div className="absolute inset-x-3 bottom-16 flex flex-col gap-2">
+        <motion.div
+          className="absolute inset-x-3 bottom-16 flex flex-col gap-2"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+        >
           {products.map((p) => (
-            <NotificationCard key={p.slug} product={p} />
+            <motion.div key={p.slug} variants={staggerItem}>
+              <NotificationCard product={p} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Home indicator */}
         <div
