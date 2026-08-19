@@ -1,37 +1,30 @@
 import type { Metadata } from 'next';
-import { Fraunces, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { Footer } from '@/components/site/Footer';
+import { Header } from '@/components/site/Header';
 import { siteConfig } from '@/data/site';
 import './globals.css';
 
-const sans = Plus_Jakarta_Sans({
+const sans = Geist({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
   variable: '--font-sans',
   display: 'swap',
 });
 
-const serif = Fraunces({
+const mono = Geist_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-serif',
-  display: 'swap',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500'],
   variable: '--font-mono',
   display: 'swap',
 });
 
-const fullTitle = `${siteConfig.shortName} — ${siteConfig.tagline}`;
+const fullTitle = `${siteConfig.shortName} · ${siteConfig.tagline}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: fullTitle,
-    template: `%s — ${siteConfig.shortName}`,
+    template: `%s · ${siteConfig.shortName}`,
   },
   description: siteConfig.description,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -55,24 +48,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${sans.variable} ${serif.variable} ${mono.variable}`}
+      className={`${sans.variable} ${mono.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-bg font-sans text-fg antialiased">
+      <body>
         <ThemeProvider>
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-bg focus:px-3 focus:py-2 focus:text-fg"
+            className="focus:bg-surface focus:text-ink sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-xl focus:px-4 focus:py-3"
           >
             Skip to content
           </a>
-          {children}
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

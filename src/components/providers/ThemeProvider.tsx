@@ -9,7 +9,7 @@ export function ThemeProvider({ children, ...rest }: Props) {
   return (
     <NextThemesProvider
       attribute="class"
-      defaultTheme="dark"
+      defaultTheme="system"
       enableSystem
       disableTransitionOnChange
       {...rest}
