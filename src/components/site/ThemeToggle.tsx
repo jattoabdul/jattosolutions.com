@@ -1,8 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { useTheme } from 'next-themes';
-import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '@/lib/cn';
 
 type Props = {
@@ -11,20 +10,16 @@ type Props = {
 
 export function ThemeToggle({ className }: Props) {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false,
+  );
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Render placeholder until mounted to avoid hydration flash
   if (!mounted) {
     return (
       <span
-        className={cn(
-          'inline-flex size-8 items-center justify-center rounded-full',
-          className,
-        )}
+        className={cn('inline-flex h-9 w-[4.5rem] items-center justify-center', className)}
         aria-hidden
       />
     );
@@ -40,48 +35,11 @@ export function ThemeToggle({ className }: Props) {
       aria-label={`Switch to ${next} mode`}
       title={`Switch to ${next} mode`}
       className={cn(
-        'inline-flex size-8 items-center justify-center rounded-full border border-border text-fg-2 transition-colors hover:bg-bg-raised hover:text-fg',
+        'focus-ring border-border bg-surface text-muted hover:border-ink hover:text-ink inline-flex h-9 items-center justify-center rounded-[0.75rem] border px-3 font-mono text-[0.7rem] tracking-[0.12em] uppercase transition-colors',
         className,
       )}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={isDark ? 'sun' : 'moon'}
-          initial={{ opacity: 0, rotate: -45, scale: 0.8 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          exit={{ opacity: 0, rotate: 45, scale: 0.8 }}
-          transition={{ duration: 0.18 }}
-          className="inline-flex"
-        >
-          {isDark ? <SunIcon /> : <MoonIcon />}
-        </motion.span>
-      </AnimatePresence>
+      {isDark ? 'Light' : 'Dark'}
     </button>
-  );
-}
-
-function SunIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
-      <g fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round">
-        <circle cx="12" cy="12" r="3.5" />
-        <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" />
-      </g>
-    </svg>
-  );
-}
-
-function MoonIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-4" aria-hidden>
-      <path
-        d="M21 12.8A8.5 8.5 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
