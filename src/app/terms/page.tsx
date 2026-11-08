@@ -3,7 +3,7 @@ import { siteConfig } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Terms',
-  description: 'Website terms for Jatto IT Solutions.',
+  description: `Website terms for ${siteConfig.name}.`,
 };
 
 export default function TermsPage() {
@@ -16,17 +16,17 @@ export default function TermsPage() {
         <section>
           <h2 className="text-ink text-xl font-semibold">Informational use</h2>
           <p className="mt-3">
-            This website describes Jatto IT Solutions and its portfolio. Product availability,
-            features, and release timing may change as the products develop. A product&apos;s own
-            terms apply when you use that product.
+            This website describes {siteConfig.name} ({siteConfig.legalName}) and its products.
+            Product availability, features, and release timing may change as the products develop. A
+            product&apos;s own terms apply when you use that product.
           </p>
         </section>
         <section>
           <h2 className="text-ink text-xl font-semibold">Intellectual property</h2>
           <p className="mt-3">
-            Website content, branding, and non-open-source materials belong to Jatto IT Solutions or
-            the identified rights holder. Open-source projects are provided under the licence
-            published in their repositories.
+            Website content, branding, and non-open-source materials belong to{' '}
+            {siteConfig.legalName} or the identified rights holder. Open-source projects are
+            provided under the licence published in their repositories.
           </p>
         </section>
         <section>

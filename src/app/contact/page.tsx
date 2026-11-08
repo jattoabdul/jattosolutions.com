@@ -1,23 +1,24 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ContactForm } from '@/components/site/ContactForm';
 import { Reveal } from '@/components/ui/Reveal';
 import { siteConfig } from '@/data/site';
 import { REPLY_TIME } from '@/lib/contact';
 
 export const metadata: Metadata = {
-  title: 'Start a project',
-  description: 'Start a product or technical partnership conversation with Jatto Solutions.',
+  title: siteConfig.contact.label,
+  description: `${siteConfig.contact.label} with ${siteConfig.name}: a new product, a Shopify integration or an AI-enabled workflow.`,
 };
 
 export default function ContactPage() {
   return (
     <section className="page-shell section-space min-h-[calc(100svh-4.5rem)]">
       <Reveal>
-        <p className="eyebrow">Start a project</p>
+        <p className="eyebrow">{siteConfig.contact.label}</p>
         <h1 className="page-title mt-7">Tell us what you are trying to make possible.</h1>
         <p className="lede mt-8">
-          Share the product, workflow, or technical constraint you are working through. We will
-          reply {REPLY_TIME} with a useful next step.
+          Tell us what you want to build or fix, and when you need it. We will reply {REPLY_TIME}{' '}
+          with a clear next step.
         </p>
       </Reveal>
       <div className="mt-14 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-16">
@@ -43,6 +44,14 @@ export default function ContactPage() {
           </div>
           <p className="border-border text-muted mt-8 border-t pt-6 text-sm">
             Based in {siteConfig.location}. Working with teams across time zones.
+          </p>
+          <p className="text-muted mt-4 text-xs leading-5">
+            Your message goes to {siteConfig.legalName}, trading as {siteConfig.name}, and is
+            handled as described in our{' '}
+            <Link href="/privacy" className="text-link underline underline-offset-4">
+              privacy notice
+            </Link>
+            .
           </p>
         </aside>
       </div>

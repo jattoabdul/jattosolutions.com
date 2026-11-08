@@ -18,13 +18,13 @@ const mono = Geist_Mono({
   display: 'swap',
 });
 
-const fullTitle = `${siteConfig.shortName} · ${siteConfig.tagline}`;
+const fullTitle = `${siteConfig.name} · Product studio, Toronto`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: fullTitle,
-    template: `%s · ${siteConfig.shortName}`,
+    template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],

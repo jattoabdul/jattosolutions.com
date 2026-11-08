@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ProductAction } from '@/components/products/ProductAction';
 import { ProductMark } from '@/components/products/ProductMark';
 import { ProductStatus } from '@/components/products/ProductStatus';
-import { ContactBand } from '@/components/site/ContactBand';
 import { Reveal } from '@/components/ui/Reveal';
 import { getProduct, products } from '@/data/products';
+import { siteConfig } from '@/data/site';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: product.name,
     description: product.summary,
     openGraph: {
-      title: `${product.name} by Jatto IT Solutions`,
+      title: `${product.name} by ${siteConfig.name}`,
       description: product.summary,
       images: [
         {
@@ -60,19 +61,8 @@ export default async function ProductPage({ params }: Props) {
             <p className="text-muted mt-7 max-w-4xl text-2xl font-medium tracking-[-0.04em] sm:text-3xl">
               {product.tagline}
             </p>
-            {product.url && (
-              <a
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="button button-primary mt-9"
-              >
-                {product.externalLabel}{' '}
-                <span aria-hidden className="ml-2">
-                  ↗
-                </span>
-              </a>
-            )}
+            <p className="mt-5 max-w-2xl text-lg leading-8">{product.userLine}</p>
+            <ProductAction product={product} className="button button-primary mt-9" />
           </Reveal>
         </header>
 
@@ -92,16 +82,16 @@ export default async function ProductPage({ params }: Props) {
 
         <section className="page-shell section-space grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">The job</p>
+            <p className="eyebrow">The problem</p>
             <h2 className="mt-6 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
-              What needs to get better
+              What gets in your way
             </h2>
             <p className="text-muted mt-6 text-lg leading-8">{product.problem}</p>
           </Reveal>
           <Reveal className="lg:col-span-7">
-            <p className="eyebrow">The approach</p>
+            <p className="eyebrow">What {product.name} does</p>
             <h2 className="mt-6 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
-              A focused product path
+              How it helps
             </h2>
             <p className="text-muted mt-6 max-w-2xl text-lg leading-8">{product.approach}</p>
             <div className="border-border bg-border mt-10 grid gap-px overflow-hidden rounded-2xl border sm:grid-cols-2">
@@ -132,16 +122,28 @@ export default async function ProductPage({ params }: Props) {
 
         <section className="page-shell py-20 sm:py-28">
           <Reveal className="border-border grid gap-8 border-y py-10 lg:grid-cols-12">
-            <p className="eyebrow lg:col-span-3">Current stage</p>
+            <p className="eyebrow lg:col-span-3">Where it stands</p>
             <div className="lg:col-span-7">
               <ProductStatus product={product} />
               <p className="mt-5 text-xl leading-8 tracking-[-0.025em]">{product.releaseNote}</p>
+              <ProductAction
+                product={product}
+                className="text-link mt-6 inline-flex text-sm font-semibold"
+              />
             </div>
           </Reveal>
         </section>
-      </article>
 
-      <ContactBand />
+        <footer className="page-shell pb-16 sm:pb-20">
+          <p className="text-muted text-sm">
+            Built by{' '}
+            <Link href="/about" className="text-link text-ink font-semibold">
+              {siteConfig.name}
+            </Link>
+            , a Toronto product studio.
+          </p>
+        </footer>
+      </article>
     </>
   );
 }
