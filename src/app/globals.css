@@ -16,6 +16,7 @@
   --color-action-ink: var(--action-ink);
   --color-wash: var(--wash);
   --color-success: var(--success);
+  --color-danger: var(--danger);
 
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, monospace;
@@ -35,6 +36,7 @@
   --action-ink: #ffffff;
   --wash: #eaf0ff;
   --success: #287655;
+  --danger: #b42318;
 }
 
 .dark {
@@ -52,6 +54,7 @@
   --action-ink: #ffffff;
   --wash: #202a43;
   --success: #75c8a3;
+  --danger: #ff9b8f;
 }
 
 * {
@@ -235,6 +238,129 @@ summary:focus-visible {
   height: 0.45rem;
   border-radius: 999px;
   background: currentColor;
+}
+
+/* Contact form */
+.field-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field-control {
+  display: block;
+  width: 100%;
+  min-height: 2.875rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.field-control:hover {
+  border-color: var(--muted);
+}
+
+.field-control:focus-visible {
+  border-color: var(--accent);
+  outline: 3px solid color-mix(in srgb, var(--accent) 38%, transparent);
+  outline-offset: 1px;
+}
+
+.field-control[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.field-control[aria-invalid='true']:focus-visible {
+  outline-color: color-mix(in srgb, var(--danger) 35%, transparent);
+}
+
+.field-select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.15rem) 50%,
+    calc(100% - 0.8rem) 50%;
+  background-size: 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+}
+
+.field-textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.field-error,
+.field-error-text {
+  color: var(--danger);
+}
+
+.field-error {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.contact-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-panel {
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--surface);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.contact-panel:focus {
+  outline: none;
+}
+
+.contact-panel-success {
+  border-color: color-mix(in srgb, var(--success) 45%, var(--border));
+}
+
+.contact-panel-success .eyebrow {
+  color: var(--success);
+}
+
+.contact-panel-error {
+  border-color: color-mix(in srgb, var(--danger) 45%, var(--border));
+}
+
+.contact-spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-right: 0.55rem;
+  border: 2px solid color-mix(in srgb, currentColor 35%, transparent);
+  border-top-color: currentColor;
+  border-radius: 999px;
+  animation: contact-spin 700ms linear infinite;
+}
+
+@keyframes contact-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button:disabled {
+  cursor: progress;
+  opacity: 0.85;
+  transform: none;
 }
 
 @media (max-width: 40rem) {

@@ -45,3 +45,27 @@
 - Why: Resend sends from the jattosolutions.com domain with reply-to set to the visitor, keeps the form inside the Next.js app, and needs no third-party form page
 - Rejected: Formspree, which adds an external endpoint and branding on the free tier; email-only, which can fail silently
 - Rests on: owner answer, 2026-11-08
+
+## 2026-11-08 · Contact form promises a reply within two business days
+- Decided by: Claude, default until the owner chooses
+- Why: the plan asks for a stated reply time; two business days is achievable for a one-person studio and is stated once in the lede, beside the submit button and in the success message (`REPLY_TIME` in `src/lib/contact.ts`)
+- Rejected: "within 24 hours", which is easy to miss on weekends; no stated time
+- Rests on: docs/evaluation-jattosolutions-site.md, contact finding
+
+## 2026-11-08 · Contact form validates in the browser and again in the server action
+- Decided by: Claude, default
+- Why: without JavaScript the browser's own checks (required, type=email) run and the server action returns inline errors with the visitor's values kept; once hydrated, inline messages replace browser bubbles and check on blur and on submit. One rule set in `src/lib/contact.ts` serves both
+- Rejected: client-only validation, which fails without JavaScript; adding zod, which is a dependency for five fields
+- Rests on: Phase 3 contact item; Next.js forms guide
+
+## 2026-11-08 · Spam control is a honeypot plus an in-memory per-IP limit
+- Decided by: Claude, default
+- Why: a filled honeypot gets a normal success message and nothing is sent, so bots learn nothing; five submissions per IP per 15 minutes is held in memory, which is enough for one long-lived Node process on Railway and resets on deploy
+- Rejected: a CAPTCHA, which taxes every real visitor; a Redis-backed limiter, which adds a service for low traffic. Revisit if spam gets through or the site runs more than one instance
+- Rests on: Phase 3 contact item
+
+## 2026-11-08 · A failed send shows the email fallback with the message prefilled
+- Decided by: Claude, default
+- Why: when Resend is not configured (no `RESEND_API_KEY` or `CONTACT_FROM_EMAIL`) or rejects the message, the visitor gets a mailto button that opens their email app with their message filled in, a copy-email button, and the form with their values kept; local builds pass with no key
+- Rejected: a generic error asking them to retry, which loses leads when the cause is configuration
+- Rests on: Phase 3 contact item

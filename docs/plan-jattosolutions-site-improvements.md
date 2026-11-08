@@ -87,7 +87,7 @@ Logos and brand assets:
 
 Exit: every product page ends in a status-specific action; the studio path ends in a confirmed submission.
 
-- [ ] /contact form: name, email, company, what you are building, timing; inline validation; success state with reply time; copy-email button; mailto fallback. Sent with a Next.js server action through Resend to hello@jattosolutions.com, with the visitor's address as reply-to; honeypot field and a rate limit for spam; API key in an env var on Railway
+- [x] /contact form: name, email, company, what you are building, timing; inline validation; success state with reply time; copy-email button; mailto fallback. Sent with a Next.js server action through Resend to hello@jattosolutions.com, with the visitor's address as reply-to; honeypot field and a rate limit for spam; API key in an env var on Railway
 - [ ] Status-specific product actions in `products.ts`: Live "Open", Closed beta "Request access", Shopify review "Get notified at launch", In development "Become a design partner", Open source "View on GitHub" plus docs
 - [ ] /products becomes an index: grid with mark, one line, status, primary action; filter by status if more than six products
 - [ ] Home product section trimmed to two or three products in varied layouts, each labelled with the capability it proves; the proof strip covers the rest
