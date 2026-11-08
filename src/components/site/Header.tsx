@@ -10,7 +10,7 @@ export function Header() {
         <Link
           href="/"
           className="focus-ring flex items-center gap-3 rounded-xl"
-          aria-label="Jatto IT Solutions home"
+          aria-label={`${siteConfig.name} home`}
         >
           <span className="relative size-8 shrink-0">
             <Image
@@ -42,8 +42,8 @@ export function Header() {
             ))}
           </nav>
           <ThemeToggle />
-          <Link href="/contact" className="button button-primary">
-            Talk to us
+          <Link href={siteConfig.contact.href} className="button button-primary">
+            {siteConfig.contact.label}
           </Link>
         </div>
 
@@ -62,8 +62,11 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="/contact" className="hover:bg-wash rounded-xl px-3 py-3">
-                Contact
+              <Link
+                href={siteConfig.contact.href}
+                className="hover:bg-wash rounded-xl px-3 py-3 font-semibold"
+              >
+                {siteConfig.contact.label}
               </Link>
             </nav>
             <div className="border-border mt-2 border-t px-3 pt-3">

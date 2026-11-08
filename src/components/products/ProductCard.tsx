@@ -5,7 +5,14 @@ import { cn } from '@/lib/cn';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProductStatus } from './ProductStatus';
 
-export function ProductCard({ product, reverse = false }: { product: Product; reverse?: boolean }) {
+type Props = {
+  product: Product;
+  reverse?: boolean;
+  /** Home "Selected products": lead with the client capability the product proves. */
+  showCapability?: boolean;
+};
+
+export function ProductCard({ product, reverse = false, showCapability = false }: Props) {
   return (
     <Reveal>
       <article className="border-border grid items-center gap-8 border-t py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
@@ -30,7 +37,16 @@ export function ProductCard({ product, reverse = false }: { product: Product; re
               {product.name}
             </Link>
           </h3>
-          <p className="mt-4 text-xl font-medium tracking-[-0.035em]">{product.tagline}</p>
+          {showCapability ? (
+            <>
+              <p className="eyebrow mt-6">What it shows we can build</p>
+              <p className="mt-3 text-xl font-medium tracking-[-0.035em]">{product.capability}</p>
+            </>
+          ) : (
+            <>
+              <p className="mt-4 text-xl font-medium tracking-[-0.035em]">{product.tagline}</p>
+            </>
+          )}
           <p className="text-muted mt-5 max-w-lg leading-7">{product.summary}</p>
           <Link
             href={`/products/${product.slug}`}

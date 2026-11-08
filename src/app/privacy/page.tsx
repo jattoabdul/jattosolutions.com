@@ -3,7 +3,7 @@ import { siteConfig } from '@/data/site';
 
 export const metadata: Metadata = {
   title: 'Privacy',
-  description: 'Privacy information for the Jatto IT Solutions company website.',
+  description: `Privacy information for the ${siteConfig.name} company website.`,
 };
 
 export default function PrivacyPage() {
@@ -16,8 +16,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-ink text-xl font-semibold">This company website</h2>
           <p className="mt-3">
-            This notice covers jattosolutions.com. Individual Jatto products may have their own
-            privacy notices describing the information needed for their specific workflows.
+            This notice covers jattosolutions.com, operated by {siteConfig.legalName}, which trades
+            as {siteConfig.name}. Each of our products may have its own privacy notice for the
+            information that product needs.
           </p>
         </section>
         <section>

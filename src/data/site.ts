@@ -1,13 +1,19 @@
 export const siteConfig = {
-  name: 'Jatto IT Solutions',
-  legalName: 'Jatto IT Solutions Inc.',
+  /** Public trading name. Use in the header, titles, metadata and copy. */
+  name: 'Jatto Solutions',
+  /** Short brand reference for tight spaces such as the brandmark label. Never used alone in titles. */
   shortName: 'Jatto',
-  tagline: 'Independent software for useful work.',
+  /** Registered company. Use in the copyright line, legal pages and structured data. */
+  legalName: 'Jatto IT Solutions Inc.',
+  tradeNameNotice: 'Jatto Solutions is a trade name of Jatto IT Solutions Inc.',
+  tagline: 'A product studio that ships and operates its own software.',
   url: 'https://jattosolutions.com',
   description:
-    'Jatto IT Solutions builds focused software products, open-source tools, and long-term technical partnerships.',
+    'Jatto Solutions is a Toronto product studio. We build and run our own software products, and we build products, Shopify integrations and AI-enabled workflows for client teams.',
   email: 'hello@jattosolutions.com',
   location: 'Toronto, Canada',
+  /** The one label for every link to /contact. */
+  contact: { label: 'Start a project', href: '/contact' },
   nav: [
     { label: 'Products', href: '/products' },
     { label: 'Studio', href: '/about' },

@@ -45,3 +45,51 @@
 - Why: Resend sends from the jattosolutions.com domain with reply-to set to the visitor, keeps the form inside the Next.js app, and needs no third-party form page
 - Rejected: Formspree, which adds an external endpoint and branding on the free tier; email-only, which can fail silently
 - Rests on: owner answer, 2026-11-08
+
+## 2026-11-08 · Hero leads with "A product studio that ships and operates its own software."
+- Decided by: the owner
+- Why: names what makes the studio different (it runs its own products) and the subline lists the products as proof
+- Rejected: "Product engineering for teams that need software to work in production."; "We build the software your team runs on."
+- Rests on: owner answer, 2026-11-08; plan Phase 1 candidates
+
+## 2026-11-08 · Fera and founder content ships as marked placeholders until the owner supplies it
+- Decided by: the owner
+- Why: Fera facts must be cleared with Fera first, and founder details and photo are not yet supplied; the layout can land now
+- Rejected: holding the whole Phase 1 change until content arrives; inventing facts
+- Rests on: owner answers, 2026-11-08. Placeholders live in `src/data/studio.ts` with `placeholder: true` and render a visible "Placeholder" tag. Do not deploy to production until they are replaced. `/work/fera` is not built
+
+## 2026-11-08 · Titles use the public name; `shortName` stays "Jatto" for tight spaces only
+- Decided by: Claude, default
+- Why: titles and metadata now use `siteConfig.name` ("Jatto Solutions"), following the earlier decision against "Jatto" alone in titles; `legalName` is unchanged and the trade-name line comes from `siteConfig.tradeNameNotice`
+- Rejected: setting `shortName` to "Jatto Solutions", which makes the field pointless
+- Rests on: plan Phase 1, naming item
+
+## 2026-11-08 · The contact label lives in `siteConfig.contact`
+- Decided by: Claude, default
+- Why: one source for "Start a project" in the nav, mobile menu, hero, Studio hero, contact band and footer
+- Rejected: repeating the string in each component
+- Rests on: decision "Default contact label is Start a project"
+
+## 2026-11-08 · Selected products on home are Pinnr, TrustKarry and InferGo
+- Decided by: Claude, default
+- Why: they prove the three engagement types most directly (Shopify integrations, a full product with users, backend and ML work); the strip above already links all five
+- Rejected: Discova (lightest client signal); RuleNorth (in development, with synthetic data)
+- Rests on: plan Phase 1, capability mapping
+
+## 2026-11-08 · Each product has a status action in `products.ts`, and RuleNorth's is an email
+- Decided by: Claude, default
+- Why: the strip needs one action per product ("Open Discova", "Request TrustKarry access", "Get notified for Pinnr", "Follow RuleNorth", "InferGo on GitHub"). RuleNorth has no public site yet, so "Follow RuleNorth" opens an email to hello@jattosolutions.com
+- Rejected: linking RuleNorth's action to its own product page, which goes nowhere from that page
+- Rests on: plan Phase 1, product strip; Phase 3 replaces these with the full status-action set
+
+## 2026-11-08 · Product pages drop the contact band for a "Built by Jatto Solutions" note
+- Decided by: Claude, default
+- Why: product pages speak to the product's users; the studio pitch stays one link away
+- Rejected: keeping the full partnership band on every product page
+- Rests on: decision "The home page leads with studio clients and keeps a direct path for product users"
+
+## 2026-11-08 · Services pricing and fit copy is a first draft for owner review
+- Decided by: Claude, default
+- Why: the plan names the models (fixed scope, monthly retainer) but no figures; the good-fit and not-a-fit lists are drafted from the evaluation's positioning findings
+- Rejected: publishing prices or day rates without the owner
+- Rests on: plan Phase 1, Studio page item; `src/data/studio.ts`

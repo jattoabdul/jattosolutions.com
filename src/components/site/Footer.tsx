@@ -10,7 +10,7 @@ export function Footer() {
             {siteConfig.name}
           </Link>
           <p className="text-muted mt-3 max-w-md text-sm leading-6">
-            Focused software products, open-source tools, and selective technical partnerships.
+            A Toronto product studio. We run our own products and build software for client teams.
           </p>
           <a href={`mailto:${siteConfig.email}`} className="text-link mt-5 inline-flex text-sm">
             {siteConfig.email}
@@ -26,8 +26,8 @@ export function Footer() {
               <Link href="/about" className="text-link">
                 Studio
               </Link>
-              <Link href="/contact" className="text-link">
-                Contact
+              <Link href={siteConfig.contact.href} className="text-link">
+                {siteConfig.contact.label}
               </Link>
             </div>
           </nav>
@@ -64,14 +64,17 @@ export function Footer() {
       </div>
       <div className="border-border border-t">
         <div className="page-shell text-muted flex flex-col gap-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <a
-            href={siteConfig.personalSite.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-link"
-          >
-            Founder profile ↗ {siteConfig.personalSite.label}
-          </a>
+          <div className="flex flex-col gap-2">
+            <p>{siteConfig.tradeNameNotice}</p>
+            <a
+              href={siteConfig.personalSite.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              Founder profile ↗ {siteConfig.personalSite.label}
+            </a>
+          </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/privacy" className="text-link">
               Privacy

@@ -29,8 +29,13 @@ export type Product = {
   releaseNote: string;
   image: ProductImage;
   gallery?: ProductImage[];
+  /** Who the product is for, written to its own users. Used on the strip, index and product page. */
+  userLine: string;
+  /** The client capability the product proves. Used only in the home "Selected products" section. */
+  capability: string;
+  /** The product's own next step for a user, matched to its status. */
+  action: { label: string; href: string };
   url?: string;
-  externalLabel?: string;
 };
 
 export const products: Product[] = [
@@ -40,7 +45,7 @@ export const products: Product[] = [
     category: 'product',
     status: 'live',
     statusLabel: 'Live',
-    tagline: 'A better way to follow curiosity.',
+    tagline: 'Pick a topic and read one article, without the feed.',
     summary:
       'Choose a topic or leave it random. Discova opens one technology article at a time from curated open sources.',
     problem:
@@ -60,8 +65,10 @@ export const products: Product[] = [
       height: 1000,
       alt: 'Discova home page with technology topic filters and a button for opening a random article',
     },
+    userLine: 'For developers and curious readers who want one good tech article at a time.',
+    capability: 'A content product with curated sources and a focused reading view.',
+    action: { label: 'Open Discova', href: 'https://discova.dev' },
     url: 'https://discova.dev',
-    externalLabel: 'Open Discova',
   },
   {
     slug: 'trustkarry',
@@ -69,13 +76,13 @@ export const products: Product[] = [
     category: 'product',
     status: 'closed-beta',
     statusLabel: 'Closed beta',
-    tagline: 'Clearer coordination for community handoffs.',
+    tagline: 'Send items with travelers you can check first.',
     summary:
       'A community marketplace connecting Canada-Nigeria travelers with people who need to send items.',
     problem:
       'Community handoffs already happen, but routes, requests, payment acknowledgements, and progress can be difficult to coordinate.',
     approach:
-      'TrustKarry brings discovery, messaging, handoff records, and lifecycle updates into one shared flow for senders and travelers.',
+      'TrustKarry puts trip search, messaging, handoff records and status updates in one place for senders and travelers.',
     highlights: [
       'Traveler and sender paths',
       'Verified profile signals',
@@ -98,8 +105,11 @@ export const products: Product[] = [
         alt: 'TrustKarry request inbox showing active handoff coordination and status actions',
       },
     ],
+    userLine:
+      'For people sending items between Canada and Nigeria, and the travelers who carry them.',
+    capability: 'A two-sided marketplace with profiles, messaging and handoff records.',
+    action: { label: 'Request TrustKarry access', href: 'https://trustkarry.com' },
     url: 'https://trustkarry.com',
-    externalLabel: 'Visit TrustKarry',
   },
   {
     slug: 'pinnr',
@@ -121,7 +131,7 @@ export const products: Product[] = [
       'Reviewable scheduling',
     ],
     releaseNote:
-      'The product is deployed in prelaunch mode while the Shopify App Store submission awaits approval.',
+      'Pinnr is waiting for Shopify App Store approval. Leave your email on pinnr.shop to hear when it opens.',
     image: {
       src: '/products/pinnr-dashboard.jpg',
       width: 1600,
@@ -136,8 +146,11 @@ export const products: Product[] = [
         alt: 'Pinnr pin editor with a selected Shopify product, brand template, title, and description fields',
       },
     ],
+    userLine:
+      'For Shopify merchants who want their products on Pinterest without designing every pin.',
+    capability: 'A Shopify app built on the Shopify Admin API and the Pinterest API.',
+    action: { label: 'Get notified for Pinnr', href: 'https://pinnr.shop' },
     url: 'https://pinnr.shop',
-    externalLabel: 'Visit Pinnr',
   },
   {
     slug: 'rulenorth',
@@ -145,18 +158,18 @@ export const products: Product[] = [
     category: 'product',
     status: 'in-development',
     statusLabel: 'In development',
-    tagline: 'Evidence-led shipment review for commerce teams.',
+    tagline: 'Screen international orders and keep the evidence.',
     summary:
       'A Shopify-first workflow being built to screen parties and destinations before international shipment release.',
     problem:
       'International orders can surface sanctions, restricted-party, and destination questions that need traceable human review.',
     approach:
-      'RuleNorth is designed to organize candidates, source evidence, reviewer actions, and decision records around each order.',
+      'RuleNorth gathers possible matches, their sources, reviewer notes and the final decision on each order, so the team can show why an order shipped or stopped.',
     highlights: [
-      'Human review at consequential steps',
-      'Evidence and decision provenance',
-      'Privacy-conscious data handling',
-      'Platform-neutral screening core',
+      'A person makes every final decision',
+      'Each decision keeps its sources',
+      'Collects only the data a check needs',
+      'Starts with Shopify, built to add other stores',
     ],
     releaseNote:
       'In development with synthetic data. RuleNorth supports operational review and does not provide legal advice.',
@@ -166,6 +179,12 @@ export const products: Product[] = [
       height: 1024,
       alt: 'Synthetic RuleNorth review workspace with an order queue, evidence sources, and human decision controls',
     },
+    userLine: 'For commerce teams that need to check international orders before they ship.',
+    capability: 'A review workflow where every decision keeps its evidence and an audit trail.',
+    action: {
+      label: 'Follow RuleNorth',
+      href: 'mailto:hello@jattosolutions.com?subject=Follow%20RuleNorth',
+    },
   },
   {
     slug: 'infergo',
@@ -173,18 +192,18 @@ export const products: Product[] = [
     category: 'open-source',
     status: 'public-alpha',
     statusLabel: 'Public alpha',
-    tagline: 'Go-native inference for backend services.',
+    tagline: 'Run model predictions inside your Go service.',
     summary:
       'Export a supported model once, load it in Go, and run predictions without Python in production.',
     problem:
       'Teams running small inference workloads in Go often add a separate Python runtime and service boundary.',
     approach:
-      'InferGo provides a narrow, CPU-first, pure-Go-by-default runtime with parity-backed support for documented model paths.',
+      'InferGo is a small Go library that runs supported models on the CPU. Each supported model is tested to give the same results as the original.',
     highlights: [
-      'Library-first API',
-      'Optional HTTP process',
-      'Parity validation',
-      'Public open source',
+      'Use it as a Go library',
+      'Or run it as a small HTTP server',
+      'Results checked against the original model',
+      'Open source on GitHub',
     ],
     releaseNote: 'Public and currently in alpha under the Pergamon Labs organization.',
     image: {
@@ -193,8 +212,10 @@ export const products: Product[] = [
       height: 600,
       alt: 'GitHub repository card for the public Pergamon Labs InferGo project',
     },
+    userLine: 'For Go developers who want to run model predictions without a Python service.',
+    capability: 'Go backend services and machine learning inference in production.',
+    action: { label: 'InferGo on GitHub', href: 'https://github.com/pergamon-labs/infergo' },
     url: 'https://github.com/pergamon-labs/infergo',
-    externalLabel: 'View on GitHub',
   },
 ];
 

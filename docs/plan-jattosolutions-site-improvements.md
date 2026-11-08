@@ -30,26 +30,26 @@ Home page order, studio clients first:
 7. How a project starts: three plain steps from first note to first release
 8. Contact band
 
-- [ ] Public name "Jatto Solutions" in the header, footer brand line, page titles, OG images, email signatures and metadata; legal name "Jatto IT Solutions Inc." in the copyright line, Privacy, Terms, the contact page footer note and `legalName` in structured data. Update `siteConfig.name`, `shortName` and `legalName` together
-- [ ] Footer line once: "Jatto Solutions is a trade name of Jatto IT Solutions Inc."
-- [ ] New hero headline and subline, 20 words or fewer, written for a client. Candidates to react to:
+- [x] Public name "Jatto Solutions" in the header, footer brand line, page titles, OG images, email signatures and metadata; legal name "Jatto IT Solutions Inc." in the copyright line, Privacy, Terms, the contact page footer note and `legalName` in structured data. Update `siteConfig.name`, `shortName` and `legalName` together (done except the contact page, which belongs to the contact-form work; email signatures are outside the repo)
+- [x] Footer line once: "Jatto Solutions is a trade name of Jatto IT Solutions Inc."
+- [x] New hero headline and subline, 20 words or fewer, written for a client. Candidates to react to: Chosen: "A product studio that ships and operates its own software." / "Hire the team behind Discova, TrustKarry, Pinnr and InferGo for your next build."
   - "Product engineering for teams that need software to work in production." / "We design, build and run our own products. We bring the same standard to a few client builds."
   - "We build the software your team runs on." / "Commerce integrations, workflow tools and AI-enabled products, from first version to live operation."
   - "A product studio that ships and operates its own software." / "Hire the team behind Discova, TrustKarry, Pinnr and InferGo for your next build."
-- [ ] One contact label across nav, hero, band and footer (default: "Start a project")
-- [ ] "What we build for clients" section: three engagement types in plain words (new product from zero to launch, Shopify and commerce integrations, AI-enabled internal workflows), each with who it suits and a typical first deliverable
-- [ ] Map each product to the client capability it proves (Pinnr: Shopify app and Pinterest API; TrustKarry: two-sided marketplace and messaging; RuleNorth: review workflows with audit trails; InferGo: Go backend and ML inference; Discova: content product and curation) and use that line in the home "Selected products" section only
-- [ ] Product pages are written for the product's own users: who it is for, what it does for them, status, and the status action above the fold; the studio line moves to one small "Built by Jatto" note at the bottom instead of the full partnership band
-- [ ] Nav keeps "Products" next to "Start a project" so both audiences see their path in the header
-- [ ] Each product has its own user-facing line, separate from the client-facing capability line, stored as two fields in `products.ts`
-- [ ] "How a project starts" section: first note, scoping call, written proposal with scope and timeline, first release
-- [ ] Fera.ai client section on home (short) and a case study page `/work/fera` (full): what Fera does, the engagement (role, duration, ongoing), what was built or improved, the stack, and an outcome stated in numbers only where Fera agrees; Fera logo with permission; a quote from a named Fera contact if they will give one. Content confirmed with Fera before publishing; nothing private from the engagement goes on the page
-- [ ] Hero subline candidate that uses it: "Engineering partner to Fera.ai, and the team behind Discova, TrustKarry, Pinnr and InferGo."
-- [ ] Founder block on home and Studio: photo, role, years, 3 concrete things built or led, link to jattoabdul.com
-- [ ] Studio page becomes the full services page: engagement types, how pricing works (fixed scope or monthly retainer), who is a good fit and who is not
-- [ ] Rewrite the three home principles and four Studio principles as client outcomes, no method shorthand
-- [ ] "Five projects" becomes "Five products"
-- [ ] Copy pass: every visible string re-read for jargon, vague referents and em dashes
+- [x] One contact label across nav, hero, band and footer (default: "Start a project")
+- [x] "What we build for clients" section: three engagement types in plain words (new product from zero to launch, Shopify and commerce integrations, AI-enabled internal workflows), each with who it suits and a typical first deliverable
+- [x] Map each product to the client capability it proves (Pinnr: Shopify app and Pinterest API; TrustKarry: two-sided marketplace and messaging; RuleNorth: review workflows with audit trails; InferGo: Go backend and ML inference; Discova: content product and curation) and use that line in the home "Selected products" section only
+- [x] Product pages are written for the product's own users: who it is for, what it does for them, status, and the status action above the fold; the studio line moves to one small "Built by Jatto" note at the bottom instead of the full partnership band
+- [x] Nav keeps "Products" next to "Start a project" so both audiences see their path in the header
+- [x] Each product has its own user-facing line, separate from the client-facing capability line, stored as two fields in `products.ts`
+- [x] "How a project starts" section: first note, scoping call, written proposal with scope and timeline, first release
+- [ ] Fera.ai client section on home (short) and a case study page `/work/fera` (full). Home section built with marked placeholder copy in `src/data/studio.ts`; waiting on facts cleared with Fera. Case study page not built until approved content exists: what Fera does, the engagement (role, duration, ongoing), what was built or improved, the stack, and an outcome stated in numbers only where Fera agrees; Fera logo with permission; a quote from a named Fera contact if they will give one. Content confirmed with Fera before publishing; nothing private from the engagement goes on the page
+- [ ] (Not used: owner chose the product-list subline. Revisit once Fera facts are cleared.) Hero subline candidate that uses it: "Engineering partner to Fera.ai, and the team behind Discova, TrustKarry, Pinnr and InferGo."
+- [ ] Founder block on home and Studio: photo, role, years, 3 concrete things built or led, link to jattoabdul.com. Block built with an initials tile and marked placeholders in `src/data/studio.ts`; waiting on owner details and photo
+- [x] Studio page becomes the full services page: engagement types, how pricing works (fixed scope or monthly retainer), who is a good fit and who is not
+- [x] Rewrite the three home principles and four Studio principles as client outcomes, no method shorthand Studio principles are now "What you can expect" outcomes; the home principles section is replaced by "What we build for clients" and "How a project starts"
+- [x] "Five projects" becomes "Five products"
+- [x] Copy pass: every visible string re-read for jargon, vague referents and em dashes (contact page left to the contact-form work)
 
 ## Phase 2: Product imagery and logos (3 to 5 days, mostly capture work)
 

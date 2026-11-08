@@ -7,7 +7,7 @@ import { products } from '@/data/products';
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Explore the software products and open-source tools being built by Jatto IT Solutions.',
+    'Discova, TrustKarry, Pinnr, RuleNorth and InferGo: software products and open-source tools from Jatto Solutions.',
 };
 
 export default function ProductsPage() {
@@ -17,10 +17,10 @@ export default function ProductsPage() {
         <div className="page-shell section-space">
           <Reveal>
             <p className="eyebrow">Products and open source</p>
-            <h1 className="page-title mt-7">Useful software, built with a point of view.</h1>
+            <h1 className="page-title mt-7">Five products, each for a specific job.</h1>
             <p className="lede mt-8">
-              Five projects across learning, community coordination, merchant growth, shipment
-              review, and developer infrastructure.
+              For reading about technology, sending items between Canada and Nigeria, selling on
+              Pinterest, checking international orders, and running models in Go.
             </p>
           </Reveal>
         </div>
