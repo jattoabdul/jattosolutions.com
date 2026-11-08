@@ -30,7 +30,7 @@ Home page order, studio clients first:
 7. How a project starts: three plain steps from first note to first release
 8. Contact band
 
-- [x] Public name "Jatto Solutions" in the header, footer brand line, page titles, OG images, email signatures and metadata; legal name "Jatto IT Solutions Inc." in the copyright line, Privacy, Terms, the contact page footer note and `legalName` in structured data. Update `siteConfig.name`, `shortName` and `legalName` together (done except the contact page, which belongs to the contact-form work; email signatures are outside the repo)
+- [x] Public name "Jatto Solutions" in the header, footer brand line, page titles, OG images, email signatures and metadata; legal name "Jatto IT Solutions Inc." in the copyright line, Privacy, Terms, the contact page footer note and `legalName` in structured data. Update `siteConfig.name`, `shortName` and `legalName` together (contact page included after the merge with #4; email signatures are outside the repo)
 - [x] Footer line once: "Jatto Solutions is a trade name of Jatto IT Solutions Inc."
 - [x] New hero headline and subline, 20 words or fewer, written for a client. Candidates to react to: Chosen: "A product studio that ships and operates its own software." / "Hire the team behind Discova, TrustKarry, Pinnr and InferGo for your next build."
   - "Product engineering for teams that need software to work in production." / "We design, build and run our own products. We bring the same standard to a few client builds."
@@ -49,7 +49,7 @@ Home page order, studio clients first:
 - [x] Studio page becomes the full services page: engagement types, how pricing works (fixed scope or monthly retainer), who is a good fit and who is not
 - [x] Rewrite the three home principles and four Studio principles as client outcomes, no method shorthand Studio principles are now "What you can expect" outcomes; the home principles section is replaced by "What we build for clients" and "How a project starts"
 - [x] "Five projects" becomes "Five products"
-- [x] Copy pass: every visible string re-read for jargon, vague referents and em dashes (contact page left to the contact-form work)
+- [x] Copy pass: every visible string re-read for jargon, vague referents and em dashes (contact page included after the merge with #4)
 
 ## Phase 2: Product imagery and logos (3 to 5 days, mostly capture work)
 
@@ -75,7 +75,7 @@ Logos and brand assets:
 - [ ] Export the Jatto wordmark and brandmark as SVG (full colour, black, white, inverse). Blocked: only PNGs exist in `public/logo/`; no vector source in this repo. Needs the original design file from the owner; raster logos are not traced
 - [ ] Header and footer use the horizontal wordmark; favicon and app icons from the brandmark
 - [ ] OG image rebuilt with the real wordmark; one OG image per product with its hero crop
-- [x] Product marks shown in the product strip, product index and product headers (product headers and `ProductCard` done via `ProductMark`; files in `public/marks/`; the home product strip is wired when the home rewrite lands), copied as SVG from each product's own repo:
+- [x] Product marks shown in the product strip, product index and product headers (product headers, `ProductCard` and the home product strip all use `ProductMark`; files in `public/marks/`), copied as SVG from each product's own repo:
   - Discova: `discova/discova-dev/src/app/icon.svg` (indigo tile with shuffle arrows)
   - TrustKarry: "tk" mark from `trustkarry/trustkarry_ui/src/components/logo.tsx` (`LogoMark`, uses currentColor, so it works in both themes); export it to a standalone SVG
   - Pinnr: red stacked-squares mark, `pinnr/pinnr-website/public/logo.svg` (same file in `pinnr-app/public/logo.svg`; used in the Pinnr site header), with `logo-alt.svg` as the variant for dark backgrounds. The red circle pin in `pinnr-design-system/design_guide/assets/logo-mark.svg` is an older asset and is not used
@@ -87,7 +87,7 @@ Logos and brand assets:
 
 Exit: every product page ends in a status-specific action; the studio path ends in a confirmed submission.
 
-- [ ] /contact form: name, email, company, what you are building, timing; inline validation; success state with reply time; copy-email button; mailto fallback. Sent with a Next.js server action through Resend to hello@jattosolutions.com, with the visitor's address as reply-to; honeypot field and a rate limit for spam; API key in an env var on Railway
+- [x] /contact form: name, email, company, what you are building, timing; inline validation; success state with reply time; copy-email button; mailto fallback. Sent with a Next.js server action through Resend to hello@jattosolutions.com, with the visitor's address as reply-to; honeypot field and a rate limit for spam; API key in an env var on Railway
 - [ ] Status-specific product actions in `products.ts`: Live "Open", Closed beta "Request access", Shopify review "Get notified at launch", In development "Become a design partner", Open source "View on GitHub" plus docs
 - [ ] /products becomes an index: grid with mark, one line, status, primary action; filter by status if more than six products
 - [ ] Home product section trimmed to two or three products in varied layouts, each labelled with the capability it proves; the proof strip covers the rest

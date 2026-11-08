@@ -21,21 +21,23 @@ Change: render content visible by default. Hide it only when motion is allowed a
 
 **Product screenshots are cropped through their content**
 Where: `ProductCard` forces every image into `aspect-[16/10]` with `object-cover object-top`.
+
 - TrustKarry `find-trips.png` is 1185x520 (2.3:1). The crop cuts both sides, so visible text reads "aveler trips for your sender items", "a -> Ogun, Nigeria", "est Space", and the green "Accept" chip is cut off at the edge.
 - InferGo `infergo-github.png` is 1200x600 (2:1). On /products the title reads "ergamon-labs/ nfergo" and "-native inference ... rvices".
 - Pinnr dashboard (16:9) loses the Shopify sidebar labels ("ify", "ucts", "omers").
-Why it matters: cropped words look like a rendering bug. Screenshots are the main proof that the products are real, and on this site they read as broken.
-Heuristic: aesthetic and minimalist design; consistency and standards.
-Change: capture every product image at one target ratio (16:10), or give each image its own aspect and focal point in the data model and stop using `object-cover` on UI screenshots.
+  Why it matters: cropped words look like a rendering bug. Screenshots are the main proof that the products are real, and on this site they read as broken.
+  Heuristic: aesthetic and minimalist design; consistency and standards.
+  Change: capture every product image at one target ratio (16:10), or give each image its own aspect and focal point in the data model and stop using `object-cover` on UI screenshots.
 
 **Screenshots show test data, dev environments and internal names**
 Where: home, /products, and product pages.
+
 - Pinnr: the Shopify header shows "Pinnr Jatto Dev" with a "dev" badge, the board is "@pinnr_app_review", the product is Shopify's demo "The 3p Fulfilled Snowboard, $2,629.95", the activity log shows the internal job name "pin-draft-update:update-draft", and the KPIs read 1 published, 1 scheduled, with a 7-day chart of six zeros and a single 1.
 - TrustKarry: "Traveler 13", a single trip, and dark UI cropped mid-sentence.
 - InferGo: the GitHub card advertises 2 contributors, 2 issues, 5 stars, 0 forks, under another organization's lion logo.
-Why it matters: a buyer or partner reads near-empty dashboards and dev labels as "nobody uses this", which is the opposite of what the section is meant to prove. Public star and fork counts invite comparison the project does not win yet.
-Heuristic: match between system and the real world.
-Change: re-shoot every product with realistic seeded demo data (believable merchant name, real-looking catalog, a week of non-zero activity), production chrome, and no internal identifiers. For InferGo, replace the GitHub social card with a real code example rendered as text (export, load, predict) and keep star counts off the page.
+  Why it matters: a buyer or partner reads near-empty dashboards and dev labels as "nobody uses this", which is the opposite of what the section is meant to prove. Public star and fork counts invite comparison the project does not win yet.
+  Heuristic: match between system and the real world.
+  Change: re-shoot every product with realistic seeded demo data (believable merchant name, real-looking catalog, a week of non-zero activity), production chrome, and no internal identifiers. For InferGo, replace the GitHub social card with a real code example rendered as text (export, load, predict) and keep star counts off the page.
 
 **Images are illegible at the size they are shown, especially on mobile**
 Where: hero collage, all product rows, all mobile views.
@@ -117,24 +119,24 @@ No JSON-LD on any page. Change: `Organization` on the root, `SoftwareApplication
 
 Task: a founder wants to hire Jatto for a build.
 
-| Step | Will they try? | Will they see it? | Will they understand it? | Will they see progress? | Finding |
-|---|---|---|---|---|---|
-| Land on home, decide if Jatto does client work | No: hero names products, not services | Yes | No | n/a | Positioning does not tell either audience what Jatto is for |
-| Look for proof (past clients, founder) | Yes | No: none exists | n/a | n/a | Positioning does not tell either audience what Jatto is for |
-| Click "Work with us" | Yes | Yes | Yes | No: mail client may not open | Contact is a mailto link only |
+| Step                                           | Will they try?                        | Will they see it? | Will they understand it? | Will they see progress?      | Finding                                                     |
+| ---------------------------------------------- | ------------------------------------- | ----------------- | ------------------------ | ---------------------------- | ----------------------------------------------------------- |
+| Land on home, decide if Jatto does client work | No: hero names products, not services | Yes               | No                       | n/a                          | Positioning does not tell either audience what Jatto is for |
+| Look for proof (past clients, founder)         | Yes                                   | No: none exists   | n/a                      | n/a                          | Positioning does not tell either audience what Jatto is for |
+| Click "Work with us"                           | Yes                                   | Yes               | Yes                      | No: mail client may not open | Contact is a mailto link only                               |
 
 Task: a Shopify merchant wants Pinnr.
 
-| Step | Will they try? | Will they see it? | Will they understand it? | Will they see progress? | Finding |
-|---|---|---|---|---|---|
-| Judge Pinnr from its screenshot | Yes | Yes | No: dev store, demo snowboard, zero chart | n/a | Screenshots show test data |
-| Get access while in Shopify review | Yes | No action exists | n/a | n/a | Products that are not live have no next step |
+| Step                               | Will they try? | Will they see it? | Will they understand it?                  | Will they see progress? | Finding                                      |
+| ---------------------------------- | -------------- | ----------------- | ----------------------------------------- | ----------------------- | -------------------------------------------- |
+| Judge Pinnr from its screenshot    | Yes            | Yes               | No: dev store, demo snowboard, zero chart | n/a                     | Screenshots show test data                   |
+| Get access while in Shopify review | Yes            | No action exists  | n/a                                       | n/a                     | Products that are not live have no next step |
 
 Task: a visitor with Reduce motion on opens the site.
 
-| Step | Will they try? | Will they see it? | Will they understand it? | Will they see progress? | Finding |
-|---|---|---|---|---|---|
-| Read anything below the header | Yes | No: content is invisible | No | No | Page body is blank for visitors with "Reduce motion" turned on |
+| Step                           | Will they try? | Will they see it?        | Will they understand it? | Will they see progress? | Finding                                                        |
+| ------------------------------ | -------------- | ------------------------ | ------------------------ | ----------------------- | -------------------------------------------------------------- |
+| Read anything below the header | Yes            | No: content is invisible | No                       | No                      | Page body is blank for visitors with "Reduce motion" turned on |
 
 ## Positive Findings
 
