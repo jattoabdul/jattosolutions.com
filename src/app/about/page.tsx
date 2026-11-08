@@ -52,7 +52,7 @@ export default function AboutPage() {
           <p className="eyebrow">Position</p>
           <h2 className="section-title mt-6">A product company first.</h2>
         </Reveal>
-        <Reveal className="text-muted space-y-6 text-lg leading-8 lg:col-span-7" delay={0.06}>
+        <Reveal className="text-muted space-y-6 text-lg leading-8 lg:col-span-7">
           <p>
             Our own portfolio is the centre of the studio. Discova, TrustKarry, Pinnr, RuleNorth,
             and InferGo each explore a specific workflow with a clear customer and release path.

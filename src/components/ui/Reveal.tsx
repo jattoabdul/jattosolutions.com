@@ -1,29 +1,11 @@
-'use client';
-
-import { motion, useReducedMotion } from 'motion/react';
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
-export function Reveal({
-  children,
-  className,
-  delay = 0,
-}: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
-}) {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <motion.div
-      className={cn(className)}
-      initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.16 }}
-      transition={{ duration: 0.58, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
-      {children}
-    </motion.div>
-  );
+/**
+ * Fades content in as it scrolls into view using a CSS scroll-driven animation.
+ * Content is visible by default: no JavaScript, no hydration wait, and nothing
+ * hidden for browsers without scroll timelines or visitors who prefer reduced motion.
+ */
+export function Reveal({ children, className }: { children: ReactNode; className?: string }) {
+  return <div className={cn('reveal', className)}>{children}</div>;
 }

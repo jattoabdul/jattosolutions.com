@@ -11,18 +11,16 @@ export function ProductCard({ product, reverse = false }: { product: Product; re
       <article className="border-border grid items-center gap-8 border-t py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
         <Link
           href={`/products/${product.slug}`}
-          className={cn(
-            'media-frame group relative aspect-[16/10] lg:col-span-7',
-            reverse && 'lg:order-2',
-          )}
+          className={cn('media-frame group block lg:col-span-7', reverse && 'lg:order-2')}
           aria-label={`Read about ${product.name}`}
         >
           <Image
             src={product.image.src}
             alt={product.image.alt}
-            fill
+            width={product.image.width}
+            height={product.image.height}
             sizes="(max-width: 1024px) 100vw, 58vw"
-            className="object-cover object-top"
+            className="block h-auto w-full"
           />
         </Link>
         <div className={cn('lg:col-span-5', reverse && 'lg:order-1')}>
