@@ -36,8 +36,8 @@ export default function AboutPage() {
           <Reveal>
             <h1 className="page-title">We build products, then stay for the hard parts.</h1>
             <p className="lede mt-8">
-              JITS, Jatto IT Solutions Inc., is an independent product studio in Toronto, led by
-              Jatto Abdul.
+              Jatto Solutions (Jatto IT Solutions Inc.) is an independent product studio in Toronto,
+              led by Jatto Abdul.
             </p>
           </Reveal>
         </div>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         <Reveal className="lg:col-span-5">
           <h2 className="section-title">A product company first.</h2>
         </Reveal>
-        <Reveal className="text-muted space-y-6 text-lg leading-8 lg:col-span-7" delay={0.06}>
+        <Reveal className="text-muted space-y-6 text-lg leading-8 lg:col-span-7">
           <p>
             Our own portfolio is the centre of the studio. Discova, TrustKarry, Pinnr, RuleNorth,
             Deendemy, and InferGo each explore a specific workflow with a clear customer and release

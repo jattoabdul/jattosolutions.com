@@ -33,8 +33,8 @@ export default function Home() {
           <div>
             <h1 className="display-title">Software for useful work.</h1>
             <p className="lede mt-8 max-w-lg">
-              Jatto IT Solutions is an independent product studio in Toronto. We build focused
-              products for commerce, communities, learning, and developer infrastructure.
+              Jatto Solutions is an independent product studio in Toronto. We build focused products
+              for commerce, communities, learning, and developer infrastructure.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/products" className="button button-primary">
@@ -45,7 +45,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <Reveal delay={0.08}>
+          <Reveal>
             <HeroCollage />
           </Reveal>
         </div>
@@ -110,19 +110,20 @@ export default function Home() {
               </a>
             </div>
           </Reveal>
-          <Reveal className="lg:col-span-7" delay={0.08}>
+          <Reveal className="lg:col-span-7">
             {inferGo.image && (
               <Link
                 href={`/products/${inferGo.slug}`}
-                className="media-frame relative block aspect-[2/1]"
+                className="media-frame block"
                 aria-label="Read about InferGo"
               >
                 <Image
                   src={inferGo.image.src}
                   alt={inferGo.image.alt}
-                  fill
+                  width={inferGo.image.width}
+                  height={inferGo.image.height}
                   sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-cover"
+                  className="block h-auto w-full"
                 />
               </Link>
             )}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ProductMark } from '@/components/products/ProductMark';
 import { ProductStatus } from '@/components/products/ProductStatus';
 import { ProductVisual } from '@/components/products/ProductVisual';
 import { ContactBand } from '@/components/site/ContactBand';
@@ -31,7 +32,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${product.name} by Jatto IT Solutions`,
       description,
       // Without a product view, the site-wide Open Graph image applies.
-      ...(product.image && { images: [{ url: product.image.src, alt: product.image.alt }] }),
+      ...(product.image && {
+        images: [
+          {
+            url: product.image.src,
+            width: product.image.width,
+            height: product.image.height,
+            alt: product.image.alt,
+          },
+        ],
+      }),
     },
   };
 }
@@ -56,7 +66,8 @@ export default async function ProductPage({ params }: Props) {
               </span>
               All products
             </Link>
-            <ProductStatus product={product} className="mt-10 flex" />
+            <ProductMark slug={product.slug} size="lg" className="mt-10" />
+            <ProductStatus product={product} className="mt-8 flex" />
             <h1 className="page-title mt-6">{product.name}</h1>
             <p className="mt-7 max-w-4xl text-2xl font-medium tracking-[-0.04em] sm:text-3xl">
               {product.tagline}
@@ -79,10 +90,13 @@ export default async function ProductPage({ params }: Props) {
         </header>
 
         <Reveal className="page-shell">
-          <div
-            className={`media-frame relative ${product.image ? 'aspect-[16/9]' : 'aspect-[2/1] sm:aspect-[3/1]'}`}
-          >
-            <ProductVisual product={product} priority sizes="(max-width: 1280px) 100vw, 1280px" />
+          <div className="media-frame">
+            <ProductVisual
+              product={product}
+              preload
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              placeholderClassName="aspect-[2/1] sm:aspect-[3/1]"
+            />
           </div>
         </Reveal>
 
@@ -93,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
             </h2>
             <p className="text-muted mt-6 text-lg leading-8">{product.problem}</p>
           </Reveal>
-          <Reveal className="lg:col-span-7" delay={0.06}>
+          <Reveal className="lg:col-span-7">
             <h2 className="text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
               How {product.name} approaches it
             </h2>
@@ -113,13 +127,14 @@ export default async function ProductPage({ params }: Props) {
 
         {product.gallery?.map((image) => (
           <Reveal key={image.src} className="page-shell pb-8 sm:pb-12">
-            <div className="media-frame relative aspect-[16/9]">
+            <div className="media-frame">
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
+                width={image.width}
+                height={image.height}
                 sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover object-top"
+                className="block h-auto w-full"
               />
             </div>
           </Reveal>
