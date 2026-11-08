@@ -5,7 +5,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   return (
-    <header className="border-border bg-canvas/90 sticky top-0 z-40 border-b backdrop-blur-xl">
+    <header className="bg-canvas/90 sticky top-0 z-40 backdrop-blur-xl">
       <div className="page-shell flex h-[4.5rem] items-center justify-between gap-6">
         <Link
           href="/"
@@ -51,7 +51,7 @@ export function Header() {
           <summary className="focus-ring border-border bg-surface cursor-pointer list-none rounded-xl border px-3 py-2 font-mono text-[0.7rem] tracking-[0.12em] uppercase [&::-webkit-details-marker]:hidden">
             Menu
           </summary>
-          <div className="border-border bg-surface absolute top-12 right-0 w-56 rounded-2xl border p-3 shadow-[0_18px_60px_rgba(10,16,35,0.14)]">
+          <div className="bg-surface absolute top-12 right-0 w-56 rounded-2xl p-3 shadow-[0_18px_60px_rgba(10,16,35,0.14)]">
             <nav aria-label="Mobile" className="flex flex-col text-sm">
               {siteConfig.nav.map((item) => (
                 <Link
@@ -66,7 +66,7 @@ export function Header() {
                 Contact
               </Link>
             </nav>
-            <div className="border-border mt-2 border-t px-3 pt-3">
+            <div className="mt-2 px-3 pb-1">
               <ThemeToggle />
             </div>
           </div>

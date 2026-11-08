@@ -3,17 +3,17 @@ import Image from 'next/image';
 export function HeroCollage() {
   return (
     <div className="relative isolate mx-auto h-[25rem] max-w-[42rem] sm:h-[34rem] lg:h-[38rem]">
-      <div className="border-border bg-surface absolute inset-x-[11%] top-[3%] z-10 aspect-[16/9] overflow-hidden rounded-[1.5rem] border">
+      <div className="media-frame absolute inset-x-[11%] top-[3%] z-10 aspect-[1440/1000]">
         <Image
-          src="/products/pinnr-hero.jpg"
-          alt="Pinnr product dashboard in Shopify Admin"
+          src="/products/pinnr-standalone.png"
+          alt="Pinnr turning a product into a designed pin for Pinterest"
           fill
           sizes="(max-width: 1024px) 80vw, 40vw"
           className="object-cover object-top"
           preload
         />
       </div>
-      <div className="border-border bg-surface absolute bottom-[4%] left-0 z-20 aspect-[1440/1000] w-[48%] overflow-hidden rounded-[1.5rem] border">
+      <div className="media-frame absolute bottom-[4%] left-0 z-20 aspect-[1440/1000] w-[48%]">
         <Image
           src="/products/discova.png"
           alt="Discova technology discovery interface"
@@ -22,7 +22,7 @@ export function HeroCollage() {
           className="object-cover object-top"
         />
       </div>
-      <div className="border-border bg-surface absolute right-0 bottom-[9%] z-30 aspect-[1185/780] w-[47%] overflow-hidden rounded-[1.5rem] border">
+      <div className="media-frame absolute right-0 bottom-[9%] z-30 aspect-[1185/780] w-[47%]">
         <Image
           src="/products/trustkarry-request-inbox.png"
           alt="TrustKarry request coordination interface"

@@ -11,22 +11,18 @@ export const metadata: Metadata = {
 
 const principles = [
   {
-    number: '01',
     title: 'Own the outcome',
     body: 'We connect product decisions to engineering decisions, then stay close enough to see what actually works.',
   },
   {
-    number: '02',
     title: 'Keep the path legible',
     body: 'Clear states, plain language, and visible constraints make products easier to use and easier to trust.',
   },
   {
-    number: '03',
     title: 'Use automation carefully',
     body: 'Automation should remove routine effort while preserving human review where a decision carries weight.',
   },
   {
-    number: '04',
     title: 'Build for change',
     body: 'Small composable systems make it possible to learn, adjust, and grow without rewriting the product every season.',
   },
@@ -35,13 +31,13 @@ const principles = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-border border-b">
+      <section>
         <div className="page-shell section-space">
           <Reveal>
-            <p className="eyebrow">The studio</p>
-            <h1 className="page-title mt-7">We build products, then stay for the hard parts.</h1>
+            <h1 className="page-title">We build products, then stay for the hard parts.</h1>
             <p className="lede mt-8">
-              Jatto IT Solutions is an independent Toronto product studio led by Abdulqahhar Jatto.
+              Jatto Solutions (Jatto IT Solutions Inc.) is an independent product studio in Toronto,
+              led by Jatto Abdul.
             </p>
           </Reveal>
         </div>
@@ -49,13 +45,13 @@ export default function AboutPage() {
 
       <section className="page-shell section-space grid gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
-          <p className="eyebrow">Position</p>
-          <h2 className="section-title mt-6">A product company first.</h2>
+          <h2 className="section-title">A product company first.</h2>
         </Reveal>
         <Reveal className="text-muted space-y-6 text-lg leading-8 lg:col-span-7">
           <p>
             Our own portfolio is the centre of the studio. Discova, TrustKarry, Pinnr, RuleNorth,
-            and InferGo each explore a specific workflow with a clear customer and release path.
+            Deendemy, and InferGo each explore a specific workflow with a clear customer and release
+            path.
           </p>
           <p>
             We also work with a small number of teams on product strategy, application engineering,
@@ -71,19 +67,15 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="border-border bg-surface border-y">
+      <section className="bg-surface">
         <div className="page-shell section-space">
           <Reveal>
-            <p className="eyebrow">Working principles</p>
-            <h2 className="section-title mt-6">A practical standard for every build.</h2>
+            <h2 className="section-title">A practical standard for every build.</h2>
           </Reveal>
-          <div className="border-border bg-border mt-16 grid gap-px overflow-hidden rounded-3xl border md:grid-cols-2">
+          <div className="mt-14 grid gap-4 md:grid-cols-2">
             {principles.map((principle) => (
-              <Reveal key={principle.number} className="bg-canvas p-7 sm:p-10">
-                <span className="eyebrow">{principle.number}</span>
-                <h3 className="mt-8 text-2xl font-semibold tracking-[-0.045em]">
-                  {principle.title}
-                </h3>
+              <Reveal key={principle.title} className="bg-canvas rounded-3xl p-7 sm:p-10">
+                <h3 className="text-2xl font-semibold tracking-[-0.045em]">{principle.title}</h3>
                 <p className="text-muted mt-4 max-w-lg leading-7">{principle.body}</p>
               </Reveal>
             ))}

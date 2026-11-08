@@ -1,28 +1,21 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import type { Product } from '@/data/products';
 import { cn } from '@/lib/cn';
 import { Reveal } from '@/components/ui/Reveal';
 import { ProductMark } from './ProductMark';
 import { ProductStatus } from './ProductStatus';
+import { ProductVisual } from './ProductVisual';
 
 export function ProductCard({ product, reverse = false }: { product: Product; reverse?: boolean }) {
   return (
     <Reveal>
-      <article className="border-border grid items-center gap-8 border-t py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
+      <article className="grid items-center gap-8 py-10 lg:grid-cols-12 lg:gap-12 lg:py-16">
         <Link
           href={`/products/${product.slug}`}
           className={cn('media-frame group block lg:col-span-7', reverse && 'lg:order-2')}
           aria-label={`Read about ${product.name}`}
         >
-          <Image
-            src={product.image.src}
-            alt={product.image.alt}
-            width={product.image.width}
-            height={product.image.height}
-            sizes="(max-width: 1024px) 100vw, 58vw"
-            className="block h-auto w-full"
-          />
+          <ProductVisual product={product} sizes="(max-width: 1024px) 100vw, 58vw" />
         </Link>
         <div className={cn('lg:col-span-5', reverse && 'lg:order-1')}>
           <ProductMark slug={product.slug} />
