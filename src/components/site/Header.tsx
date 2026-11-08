@@ -19,15 +19,15 @@ export function Header() {
               fill
               sizes="32px"
               className="object-contain dark:hidden"
-              priority
+              preload
             />
             <Image
-              src="/logo/Jatto_Brandmark_White.png"
+              src="/logo/Jatto_Brandmark_Inverse.png"
               alt=""
               fill
               sizes="32px"
               className="hidden object-contain dark:block"
-              priority
+              preload
             />
           </span>
           <span className="text-[0.94rem] font-semibold tracking-[-0.025em]">

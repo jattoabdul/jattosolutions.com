@@ -68,14 +68,15 @@ export default async function ProductPage({ params }: Props) {
         </header>
 
         <Reveal className="page-shell">
-          <div className="media-frame relative aspect-[16/9]">
+          <div className="media-frame">
             <Image
               src={product.image.src}
               alt={product.image.alt}
-              fill
-              priority
+              width={product.image.width}
+              height={product.image.height}
+              preload
               sizes="(max-width: 1280px) 100vw, 1280px"
-              className="object-cover object-top"
+              className="block h-auto w-full"
             />
           </div>
         </Reveal>
@@ -88,7 +89,7 @@ export default async function ProductPage({ params }: Props) {
             </h2>
             <p className="text-muted mt-6 text-lg leading-8">{product.problem}</p>
           </Reveal>
-          <Reveal className="lg:col-span-7" delay={0.06}>
+          <Reveal className="lg:col-span-7">
             <p className="eyebrow">The approach</p>
             <h2 className="mt-6 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
               A focused product path
@@ -107,13 +108,14 @@ export default async function ProductPage({ params }: Props) {
 
         {product.gallery?.map((image) => (
           <Reveal key={image.src} className="page-shell pb-8 sm:pb-12">
-            <div className="media-frame relative aspect-[16/9]">
+            <div className="media-frame">
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill
+                width={image.width}
+                height={image.height}
                 sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover object-top"
+                className="block h-auto w-full"
               />
             </div>
           </Reveal>

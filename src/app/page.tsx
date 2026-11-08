@@ -30,7 +30,7 @@ export default function Home() {
               </Link>
             </div>
           </Reveal>
-          <Reveal delay={0.08}>
+          <Reveal>
             <HeroCollage />
           </Reveal>
         </div>
@@ -94,18 +94,19 @@ export default function Home() {
               </a>
             </div>
           </Reveal>
-          <Reveal className="lg:col-span-7" delay={0.08}>
+          <Reveal className="lg:col-span-7">
             <Link
               href={`/products/${inferGo.slug}`}
-              className="media-frame relative block aspect-[2/1]"
+              className="media-frame block"
               aria-label="Read about InferGo"
             >
               <Image
                 src={inferGo.image.src}
                 alt={inferGo.image.alt}
-                fill
+                width={inferGo.image.width}
+                height={inferGo.image.height}
                 sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover"
+                className="block h-auto w-full"
               />
             </Link>
           </Reveal>

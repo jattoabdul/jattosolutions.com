@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function ContactBand() {
   return (
-    <section className="border-border bg-accent text-accent-ink border-t">
+    <section className="border-border bg-action text-action-ink border-t">
       <div className="page-shell grid gap-8 py-16 md:grid-cols-[1fr_auto] md:items-end md:py-24">
         <div>
           <p className="font-mono text-[0.69rem] tracking-[0.14em] uppercase opacity-70">

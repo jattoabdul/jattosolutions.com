@@ -10,6 +10,9 @@ export type ProductCategory = 'product' | 'open-source';
 export type ProductImage = {
   src: string;
   alt: string;
+  /** Intrinsic pixel size, so frames take the image's own shape and never crop UI. */
+  width: number;
+  height: number;
 };
 
 export type Product = {
@@ -53,6 +56,8 @@ export const products: Product[] = [
     releaseNote: 'Available now at discova.dev.',
     image: {
       src: '/products/discova.png',
+      width: 1440,
+      height: 1000,
       alt: 'Discova home page with technology topic filters and a button for opening a random article',
     },
     url: 'https://discova.dev',
@@ -81,11 +86,15 @@ export const products: Product[] = [
       'Currently in closed beta. TrustKarry does not act as a carrier, escrow provider, or payment processor.',
     image: {
       src: '/products/trustkarry-find-trips.png',
+      width: 1185,
+      height: 520,
       alt: 'TrustKarry trip search showing a verified traveler route from Calgary to Ogun',
     },
     gallery: [
       {
         src: '/products/trustkarry-request-inbox.png',
+        width: 1185,
+        height: 780,
         alt: 'TrustKarry request inbox showing active handoff coordination and status actions',
       },
     ],
@@ -115,11 +124,15 @@ export const products: Product[] = [
       'The product is deployed in prelaunch mode while the Shopify App Store submission awaits approval.',
     image: {
       src: '/products/pinnr-dashboard.jpg',
+      width: 1600,
+      height: 900,
       alt: 'Pinnr embedded in Shopify Admin with product sync, publishing, scheduling, and Pinterest connection status',
     },
     gallery: [
       {
         src: '/products/pinnr-pin-editor.jpg',
+        width: 1600,
+        height: 900,
         alt: 'Pinnr pin editor with a selected Shopify product, brand template, title, and description fields',
       },
     ],
@@ -149,6 +162,8 @@ export const products: Product[] = [
       'In development with synthetic data. RuleNorth supports operational review and does not provide legal advice.',
     image: {
       src: '/products/rulenorth-review.png',
+      width: 1536,
+      height: 1024,
       alt: 'Synthetic RuleNorth review workspace with an order queue, evidence sources, and human decision controls',
     },
   },
@@ -174,6 +189,8 @@ export const products: Product[] = [
     releaseNote: 'Public and currently in alpha under the Pergamon Labs organization.',
     image: {
       src: '/products/infergo-github.png',
+      width: 1200,
+      height: 600,
       alt: 'GitHub repository card for the public Pergamon Labs InferGo project',
     },
     url: 'https://github.com/pergamon-labs/infergo',
