@@ -72,16 +72,16 @@ Shot list:
 - [ ] Hero: replace the three-shot collage with one large composed product moment, or a product switcher driven by the status strip
 
 Logos and brand assets:
-- [ ] Export the Jatto wordmark and brandmark as SVG (full colour, black, white, inverse)
+- [ ] Export the Jatto wordmark and brandmark as SVG (full colour, black, white, inverse). Blocked: only PNGs exist in `public/logo/`; no vector source in this repo. Needs the original design file from the owner; raster logos are not traced
 - [ ] Header and footer use the horizontal wordmark; favicon and app icons from the brandmark
 - [ ] OG image rebuilt with the real wordmark; one OG image per product with its hero crop
-- [ ] Product marks shown in the product strip, product index and product headers, copied as SVG from each product's own repo:
+- [x] Product marks shown in the product strip, product index and product headers (product headers and `ProductCard` done via `ProductMark`; files in `public/marks/`; the home product strip is wired when the home rewrite lands), copied as SVG from each product's own repo:
   - Discova: `discova/discova-dev/src/app/icon.svg` (indigo tile with shuffle arrows)
   - TrustKarry: "tk" mark from `trustkarry/trustkarry_ui/src/components/logo.tsx` (`LogoMark`, uses currentColor, so it works in both themes); export it to a standalone SVG
   - Pinnr: red stacked-squares mark, `pinnr/pinnr-website/public/logo.svg` (same file in `pinnr-app/public/logo.svg`; used in the Pinnr site header), with `logo-alt.svg` as the variant for dark backgrounds. The red circle pin in `pinnr-design-system/design_guide/assets/logo-mark.svg` is an older asset and is not used
   - RuleNorth: temporary mark in use on the RuleNorth site, `rulenorth/site/public/brand/rulenorth-mark.svg` (navy track with an orange square) and `rulenorth-mark-on-ink.svg` for dark; full lockup at `rulenorth/design_system/assets/logo/rulenorth-lockup.svg`. Not the yellow "R" placeholder in `site/public/favicon.svg` or `platform/design-system`
   - InferGo: no mark in `open-source/infergo`; use a plain monogram tile in the same style as RuleNorth, or the Pergamon Labs mark if Pergamon approves
-- [ ] All product marks shown at one size on a neutral tile so five different colours sit together; never recoloured
+- [x] All product marks shown at one size on a neutral tile so five different colours sit together; never recoloured
 
 ## Phase 3: Flows and structure (3 to 4 days)
 

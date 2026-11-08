@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ProductMark } from '@/components/products/ProductMark';
 import { ProductStatus } from '@/components/products/ProductStatus';
 import { ContactBand } from '@/components/site/ContactBand';
 import { Reveal } from '@/components/ui/Reveal';
@@ -53,7 +54,8 @@ export default async function ProductPage({ params }: Props) {
             <Link href="/products" className="text-link eyebrow inline-flex">
               ← All products
             </Link>
-            <ProductStatus product={product} className="mt-10 flex" />
+            <ProductMark slug={product.slug} size="lg" className="mt-10" />
+            <ProductStatus product={product} className="mt-8 flex" />
             <h1 className="page-title mt-6">{product.name}</h1>
             <p className="text-muted mt-7 max-w-4xl text-2xl font-medium tracking-[-0.04em] sm:text-3xl">
               {product.tagline}

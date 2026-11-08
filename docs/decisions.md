@@ -46,6 +46,25 @@
 - Rejected: Formspree, which adds an external endpoint and branding on the free tier; email-only, which can fail silently
 - Rests on: owner answer, 2026-11-08
 
+## 2026-11-08 · Product marks render through one `ProductMark` component
+- Decided by: Claude, default
+- Why: one place maps slug to file, so `products.ts` stays content-only; every mark sits on the same neutral surface tile (40, 56 or 80 px) with the glyph at 60%, and dark mode swaps in each product's own on-ink file rather than recolouring
+- Files: `public/marks/<slug>.svg` and `<slug>-on-ink.svg`. Discova (`icon.svg`), Pinnr (`logo.svg`, `logo-alt.svg`) and RuleNorth (`rulenorth-mark.svg`, `rulenorth-mark-on-ink.svg`) are byte-for-byte copies. TrustKarry's `LogoMark` uses currentColor, so it is exported twice, black and white, matching how its own UI renders it. Discova has no dark variant; its indigo tile works on both
+- Rejected: inline SVG components per product (duplicates the source repos); CSS filters to invert marks (recolours them)
+- Rests on: plan Phase 2 "Logos and brand assets"; owner corrections on Pinnr and RuleNorth marks
+
+## 2026-11-08 · InferGo uses a temporary "IG" monogram
+- Decided by: Claude, default until InferGo has a mark or Pergamon Labs approves theirs
+- Why: InferGo has no mark; the monogram is drawn in the RuleNorth mark's style (48 grid, 3 px round strokes, navy `#0F1A2B` on light, white on ink) with no accent colour, so it reads as a placeholder rather than a brand
+- Rejected: drawing a new pictorial mark; borrowing the Pergamon Labs mark without approval
+- Rests on: plan Phase 2, InferGo line
+
+## 2026-11-08 · No SVG Jatto logos until a vector source exists
+- Decided by: Claude, following the brief
+- Why: `public/logo/` holds only PNG wordmarks and brandmarks, and no design file (SVG, AI, EPS, PDF, Figma) exists in this repo. Tracing the PNGs would produce an inexact copy of the brand
+- Next: owner supplies the original vector files; then export full colour, black, white and inverse SVGs into `public/logo/`
+- Rests on: search of the repo and `public/logo/`, 2026-11-08
+
 ## 2026-11-08 · Contact form promises a reply within two business days
 - Decided by: Claude, default until the owner chooses
 - Why: the plan asks for a stated reply time; two business days is achievable for a one-person studio and is stated once in the lede, beside the submit button and in the success message (`REPLY_TIME` in `src/lib/contact.ts`)
