@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Temporary InferGo monogram, drawn in the RuleNorth mark's style (3px round strokes, 48 grid) until InferGo has its own mark -->
+  <path d="M10 14v20" stroke="#0F1A2B" stroke-width="3" stroke-linecap="round"/>
+  <path d="M36.07 16.93A10 10 0 1 0 39 24h-8" stroke="#0F1A2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
