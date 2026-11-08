@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Product } from '@/data/products';
 import { cn } from '@/lib/cn';
 import { Reveal } from '@/components/ui/Reveal';
+import { ProductMark } from './ProductMark';
 import { ProductStatus } from './ProductStatus';
 
 type Props = {
@@ -31,7 +32,8 @@ export function ProductCard({ product, reverse = false, showCapability = false }
           />
         </Link>
         <div className={cn('lg:col-span-5', reverse && 'lg:order-1')}>
-          <ProductStatus product={product} />
+          <ProductMark slug={product.slug} />
+          <ProductStatus product={product} className="mt-6 flex" />
           <h3 className="mt-5 text-4xl font-semibold tracking-[-0.06em] sm:text-5xl">
             <Link href={`/products/${product.slug}`} className="text-link">
               {product.name}

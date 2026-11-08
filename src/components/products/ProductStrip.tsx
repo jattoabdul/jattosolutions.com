@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { products } from '@/data/products';
-import { MarkSlot } from './MarkSlot';
 import { ProductAction } from './ProductAction';
+import { ProductMark } from './ProductMark';
 import { ProductStatus } from './ProductStatus';
 
 /** All five products directly under the hero: the way in for users, the proof for clients. */
@@ -16,7 +16,7 @@ export function ProductStrip() {
           {products.map((product) => (
             <li key={product.slug} className="bg-surface flex flex-col p-5">
               <div className="flex items-center gap-3">
-                <MarkSlot product={product} />
+                <ProductMark slug={product.slug} size="sm" />
                 <div>
                   <Link
                     href={`/products/${product.slug}`}
