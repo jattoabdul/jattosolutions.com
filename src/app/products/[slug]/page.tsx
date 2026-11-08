@@ -27,7 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${product.name} by Jatto IT Solutions`,
       description: product.summary,
-      images: [{ url: product.image.src, alt: product.image.alt }],
+      images: [
+        {
+          url: product.image.src,
+          width: product.image.width,
+          height: product.image.height,
+          alt: product.image.alt,
+        },
+      ],
     },
   };
 }

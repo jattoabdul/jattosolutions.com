@@ -192,6 +192,11 @@ summary:focus-visible {
   outline-offset: 3px;
 }
 
+/* On filled brand-blue surfaces the accent ring disappears; use the surface's own ink. */
+.on-action :focus-visible {
+  outline-color: var(--action-ink);
+}
+
 .media-frame {
   overflow: hidden;
   border: 1px solid var(--border);
