@@ -1,8 +1,9 @@
 export type ProductStatus =
   | 'live'
   | 'closed-beta'
-  | 'shopify-review'
+  | 'private-pilot'
   | 'in-development'
+  | 'coming-soon'
   | 'public-alpha';
 
 export type ProductCategory = 'product' | 'open-source';
@@ -24,7 +25,8 @@ export type Product = {
   approach: string;
   highlights: string[];
   releaseNote: string;
-  image: ProductImage;
+  /** Omitted until a real product view exists; a typographic panel is shown instead. */
+  image?: ProductImage;
   gallery?: ProductImage[];
   url?: string;
   externalLabel?: string;
@@ -96,35 +98,29 @@ export const products: Product[] = [
     slug: 'pinnr',
     name: 'Pinnr',
     category: 'product',
-    status: 'shopify-review',
-    statusLabel: 'Shopify review',
-    tagline: 'Turn Shopify products into publishable Pinterest pins.',
+    status: 'private-pilot',
+    statusLabel: 'Private pilot',
+    tagline: 'A Pinterest studio for product brands.',
     summary:
-      'Pinnr helps Shopify merchants create branded pins from their catalog and publish them on a controlled schedule.',
+      'Bring in your products, and Pinnr helps turn them into pins you can create, schedule, and publish from one place.',
     problem:
-      'Small merchant teams need a repeatable Pinterest workflow without rebuilding creative for every product.',
+      'Pinterest works best with a steady flow of fresh pins. For a small product brand, designing and posting each one by hand takes time the team rarely has.',
     approach:
-      'Pinnr syncs products, applies brand templates, creates reviewable pins, and publishes them through a merchant-controlled routine.',
+      'Pinnr starts from a product image and its link. You shape the pin with a brand template, choose the Pinterest board, then publish it straight away or schedule it.',
     highlights: [
-      'Shopify-native workflow',
-      'Template-based creative',
-      'Pinterest Business connection',
-      'Reviewable scheduling',
+      'Start from a product image and link',
+      'Brand templates you can adjust',
+      'Choose the Pinterest board',
+      'Publish now or on a schedule',
     ],
     releaseNote:
-      'The product is deployed in prelaunch mode while the Shopify App Store submission awaits approval.',
+      'Pinnr is in a private pilot. If you run a product brand and would like to hear when access widens, get in touch.',
     image: {
-      src: '/products/pinnr-dashboard.jpg',
-      alt: 'Pinnr embedded in Shopify Admin with product sync, publishing, scheduling, and Pinterest connection status',
+      // Same approved asset as jattoabdul.com/building (commit c52e5ca there).
+      // No pinnr.shop link until that site carries the standalone positioning.
+      src: '/products/pinnr-standalone.png',
+      alt: 'Pinnr turning a chosen product into a designed pin that is ready to publish to Pinterest',
     },
-    gallery: [
-      {
-        src: '/products/pinnr-pin-editor.jpg',
-        alt: 'Pinnr pin editor with a selected Shopify product, brand template, title, and description fields',
-      },
-    ],
-    url: 'https://pinnr.shop',
-    externalLabel: 'Visit Pinnr',
   },
   {
     slug: 'rulenorth',
@@ -134,7 +130,7 @@ export const products: Product[] = [
     statusLabel: 'In development',
     tagline: 'Evidence-led shipment review for commerce teams.',
     summary:
-      'A Shopify-first workflow being built to screen parties and destinations before international shipment release.',
+      'A Shopify-first workflow for screening order names and destinations, with evidence and review decisions kept together.',
     problem:
       'International orders can surface sanctions, restricted-party, and destination questions that need traceable human review.',
     approach:
@@ -143,14 +139,37 @@ export const products: Product[] = [
       'Human review at consequential steps',
       'Evidence and decision provenance',
       'Privacy-conscious data handling',
-      'Platform-neutral screening core',
+      'Built for Shopify orders first',
     ],
     releaseNote:
-      'In development with synthetic data. RuleNorth supports operational review and does not provide legal advice.',
+      'In development. RuleNorth supports operational review and does not provide legal advice.',
     image: {
+      // Captured from a build seeded with synthetic data; no real order or customer appears.
       src: '/products/rulenorth-review.png',
-      alt: 'Synthetic RuleNorth review workspace with an order queue, evidence sources, and human decision controls',
+      alt: 'RuleNorth review workspace with an order queue, evidence sources, and human decision controls',
     },
+  },
+  {
+    slug: 'deendemy',
+    name: 'Deendemy',
+    category: 'product',
+    status: 'coming-soon',
+    statusLabel: 'In development · Coming soon',
+    tagline: 'Software for Muslim schools, academies, and community programmes.',
+    summary:
+      'Families, learners, classes, and attendance kept together, so teachers can spend more time teaching.',
+    problem:
+      'Family details, class lists, and attendance often live in separate spreadsheets, message threads, and paper registers. Keeping them in step takes time away from teaching.',
+    approach:
+      'Deendemy starts with people, families, and guardian relationships. Class rosters, attendance, and guardian follow-up are planned next, so each learner can be seen with their family and class in one place.',
+    highlights: [
+      'Families and guardians together',
+      'Learner records',
+      'Class rosters and attendance (planned)',
+      'Guardian follow-up (planned)',
+    ],
+    releaseNote:
+      'Deendemy is in development and is not available yet. Pricing and release timing have not been announced.',
   },
   {
     slug: 'infergo',

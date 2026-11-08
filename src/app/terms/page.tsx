@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <article className="page-shell section-space max-w-4xl">
-      <p className="eyebrow">Legal</p>
-      <h1 className="page-title mt-7">Website terms</h1>
+      <h1 className="page-title">Website terms</h1>
       <p className="text-muted mt-6 text-sm">Last updated August 19, 2026</p>
       <div className="text-muted mt-14 space-y-10 text-base leading-8">
         <section>

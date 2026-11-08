@@ -30,6 +30,7 @@
   --accent: #24468f;
   --accent-ink: #ffffff;
   --wash: #eaf0ff;
+  --frame: #e6e9ef;
   --success: #287655;
 }
 
@@ -44,6 +45,7 @@
   --accent: #8aa9f7;
   --accent-ink: #11182a;
   --wash: #202a43;
+  --frame: #232733;
   --success: #75c8a3;
 }
 
@@ -111,16 +113,6 @@ summary {
   text-wrap: balance;
 }
 
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.69rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  line-height: 1.4;
-  text-transform: uppercase;
-  color: var(--quiet);
-}
-
 .lede {
   max-width: 36rem;
   font-size: clamp(1.05rem, 2vw, 1.32rem);
@@ -185,11 +177,12 @@ summary:focus-visible {
   outline-offset: 3px;
 }
 
+/* A solid mat in place of a hairline so light screenshots still read on the canvas. */
 .media-frame {
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: clamp(0.375rem, 0.9vw, 0.625rem) solid var(--frame);
   border-radius: 1.5rem;
-  background: var(--surface);
+  background: var(--frame);
 }
 
 .media-frame img {

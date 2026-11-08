@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ProductStatus } from '@/components/products/ProductStatus';
+import { ProductVisual } from '@/components/products/ProductVisual';
 import { ContactBand } from '@/components/site/ContactBand';
 import { Reveal } from '@/components/ui/Reveal';
 import { getProduct, products } from '@/data/products';
@@ -21,13 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!product) return {};
 
+  const description = `${product.tagline} ${product.summary}`;
+
   return {
     title: product.name,
-    description: product.summary,
+    description,
     openGraph: {
       title: `${product.name} by Jatto IT Solutions`,
-      description: product.summary,
-      images: [{ url: product.image.src, alt: product.image.alt }],
+      description,
+      // Without a product view, the site-wide Open Graph image applies.
+      ...(product.image && { images: [{ url: product.image.src, alt: product.image.alt }] }),
     },
   };
 }
@@ -43,14 +47,21 @@ export default async function ProductPage({ params }: Props) {
       <article>
         <header className="page-shell section-space pb-12 lg:pb-16">
           <Reveal>
-            <Link href="/products" className="text-link eyebrow inline-flex">
-              ← All products
+            <Link
+              href="/products"
+              className="text-link text-muted inline-flex text-sm font-semibold"
+            >
+              <span aria-hidden className="mr-2">
+                ←
+              </span>
+              All products
             </Link>
             <ProductStatus product={product} className="mt-10 flex" />
             <h1 className="page-title mt-6">{product.name}</h1>
-            <p className="text-muted mt-7 max-w-4xl text-2xl font-medium tracking-[-0.04em] sm:text-3xl">
+            <p className="mt-7 max-w-4xl text-2xl font-medium tracking-[-0.04em] sm:text-3xl">
               {product.tagline}
             </p>
+            <p className="text-muted mt-5 max-w-3xl text-lg leading-8">{product.summary}</p>
             {product.url && (
               <a
                 href={product.url}
@@ -68,40 +79,35 @@ export default async function ProductPage({ params }: Props) {
         </header>
 
         <Reveal className="page-shell">
-          <div className="media-frame relative aspect-[16/9]">
-            <Image
-              src={product.image.src}
-              alt={product.image.alt}
-              fill
-              priority
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="object-cover object-top"
-            />
+          <div
+            className={`media-frame relative ${product.image ? 'aspect-[16/9]' : 'aspect-[2/1] sm:aspect-[3/1]'}`}
+          >
+            <ProductVisual product={product} priority sizes="(max-width: 1280px) 100vw, 1280px" />
           </div>
         </Reveal>
 
         <section className="page-shell section-space grid gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">The job</p>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
+            <h2 className="text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
               What needs to get better
             </h2>
             <p className="text-muted mt-6 text-lg leading-8">{product.problem}</p>
           </Reveal>
           <Reveal className="lg:col-span-7" delay={0.06}>
-            <p className="eyebrow">The approach</p>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
-              A focused product path
+            <h2 className="text-3xl font-semibold tracking-[-0.055em] sm:text-4xl">
+              How {product.name} approaches it
             </h2>
             <p className="text-muted mt-6 max-w-2xl text-lg leading-8">{product.approach}</p>
-            <div className="border-border bg-border mt-10 grid gap-px overflow-hidden rounded-2xl border sm:grid-cols-2">
-              {product.highlights.map((highlight, index) => (
-                <div key={highlight} className="bg-surface p-6">
-                  <span className="eyebrow">0{index + 1}</span>
-                  <p className="mt-5 font-medium tracking-[-0.02em]">{highlight}</p>
-                </div>
+            <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+              {product.highlights.map((highlight) => (
+                <li
+                  key={highlight}
+                  className="bg-surface rounded-2xl p-6 font-medium tracking-[-0.02em]"
+                >
+                  {highlight}
+                </li>
               ))}
-            </div>
+            </ul>
           </Reveal>
         </section>
 
@@ -119,12 +125,14 @@ export default async function ProductPage({ params }: Props) {
           </Reveal>
         ))}
 
-        <section className="page-shell py-20 sm:py-28">
-          <Reveal className="border-border grid gap-8 border-y py-10 lg:grid-cols-12">
-            <p className="eyebrow lg:col-span-3">Current stage</p>
-            <div className="lg:col-span-7">
+        <section className="page-shell py-16 sm:py-24">
+          <Reveal className="bg-surface grid gap-6 rounded-3xl p-7 sm:p-10 lg:grid-cols-12 lg:gap-8">
+            <h2 className="text-2xl font-semibold tracking-[-0.045em] lg:col-span-4">
+              Where {product.name} stands
+            </h2>
+            <div className="lg:col-span-8">
               <ProductStatus product={product} />
-              <p className="mt-5 text-xl leading-8 tracking-[-0.025em]">{product.releaseNote}</p>
+              <p className="mt-4 text-xl leading-8 tracking-[-0.025em]">{product.releaseNote}</p>
             </div>
           </Reveal>
         </section>

@@ -13,20 +13,19 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
-      <section className="border-border border-b">
+      <section>
         <div className="page-shell section-space">
           <Reveal>
-            <p className="eyebrow">Products and open source</p>
-            <h1 className="page-title mt-7">Useful software, built with a point of view.</h1>
+            <h1 className="page-title">Useful software, built with a point of view.</h1>
             <p className="lede mt-8">
-              Five projects across learning, community coordination, merchant growth, shipment
-              review, and developer infrastructure.
+              Six projects across technology reading, community handoffs, Pinterest publishing for
+              product brands, order screening, Muslim schools, and developer infrastructure.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="page-shell py-8 sm:py-12">
+      <section className="page-shell pb-8 sm:pb-12">
         {products.map((product, index) => (
           <ProductCard key={product.slug} product={product} reverse={index % 2 === 1} />
         ))}

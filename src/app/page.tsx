@@ -5,21 +5,36 @@ import { ProductCard } from '@/components/products/ProductCard';
 import { ProductStatus } from '@/components/products/ProductStatus';
 import { ContactBand } from '@/components/site/ContactBand';
 import { Reveal } from '@/components/ui/Reveal';
-import { commercialProducts, openSourceProducts } from '@/data/products';
+import { commercialProducts, openSourceProducts, products } from '@/data/products';
+
+const principles = [
+  {
+    title: 'Find the real job',
+    body: 'Start with the decision, handoff, or repeated task that software should improve.',
+  },
+  {
+    title: 'Build the narrow path',
+    body: 'Make the successful customer path obvious before adding breadth or automation.',
+  },
+  {
+    title: 'Ship with evidence',
+    body: 'Use real workflows, clear release states, and measured iteration to guide the product.',
+  },
+];
 
 export default function Home() {
   const inferGo = openSourceProducts[0];
 
   return (
     <>
-      <section className="border-border overflow-hidden border-b">
+      <section className="overflow-hidden">
+        {/* The hero renders without a scroll reveal so it is visible before hydration. */}
         <div className="page-shell grid min-h-[calc(100svh-4.5rem)] items-center gap-10 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-12">
-          <Reveal>
-            <p className="eyebrow">Independent product studio · Toronto</p>
-            <h1 className="display-title mt-7">Software for useful work.</h1>
+          <div>
+            <h1 className="display-title">Software for useful work.</h1>
             <p className="lede mt-8 max-w-lg">
-              We build focused products for commerce, communities, learning, and developer
-              infrastructure.
+              Jatto IT Solutions is an independent product studio in Toronto. We build focused
+              products for commerce, communities, learning, and developer infrastructure.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/products" className="button button-primary">
@@ -29,53 +44,54 @@ export default function Home() {
                 Work with us
               </Link>
             </div>
-          </Reveal>
+          </div>
           <Reveal delay={0.08}>
             <HeroCollage />
           </Reveal>
         </div>
-        <div className="border-border bg-surface border-t">
-          <div className="page-shell text-muted grid grid-cols-2 gap-px py-5 text-xs sm:grid-cols-5">
-            {commercialProducts.concat(openSourceProducts).map((product) => (
-              <Link
-                key={product.slug}
-                href={`/products/${product.slug}`}
-                className="text-link border-border flex min-h-10 flex-col justify-center border-l px-4 first:border-l-0"
-              >
-                <span className="text-ink font-semibold">{product.name}</span>
-                <span className="mt-1">{product.statusLabel}</span>
-              </Link>
+        <div className="bg-surface">
+          <ul
+            aria-label="Product status"
+            className="page-shell text-muted grid grid-cols-2 gap-x-4 gap-y-5 py-6 text-xs sm:grid-cols-3 lg:grid-cols-6"
+          >
+            {products.map((product) => (
+              <li key={product.slug}>
+                <Link
+                  href={`/products/${product.slug}`}
+                  className="text-link flex min-h-10 flex-col justify-center"
+                >
+                  <span className="text-ink text-sm font-semibold">{product.name}</span>
+                  <span className="mt-1">{product.statusLabel}</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       <section className="page-shell section-space" id="products">
         <Reveal className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <p className="eyebrow">The product portfolio</p>
-            <h2 className="section-title mt-6">Five projects. Each built around a clear job.</h2>
-          </div>
+          <h2 className="section-title lg:col-span-8">Each product starts with a clear job.</h2>
           <p className="lede self-end lg:col-span-4 lg:text-base">
-            From product discovery to shipment review, each project starts with a workflow worth
-            making clearer.
+            Each product shows its current stage, so you can see what is ready to use today.
           </p>
         </Reveal>
 
-        <div className="mt-14">
+        <div className="mt-10">
           {commercialProducts.map((product, index) => (
             <ProductCard key={product.slug} product={product} reverse={index % 2 === 1} />
           ))}
         </div>
       </section>
 
-      <section className="border-border bg-surface border-y">
+      <section className="bg-surface">
         <div className="page-shell section-space grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">Open source</p>
-            <ProductStatus product={inferGo} className="mt-7" />
+            <ProductStatus product={inferGo} />
             <h2 className="section-title mt-5">{inferGo.name}</h2>
-            <p className="mt-5 text-xl font-medium tracking-[-0.035em]">{inferGo.tagline}</p>
+            <p className="mt-5 text-xl font-medium tracking-[-0.035em]">
+              Open source. {inferGo.tagline}
+            </p>
             <p className="text-muted mt-5 max-w-lg leading-7">{inferGo.summary}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href={`/products/${inferGo.slug}`} className="button button-primary">
@@ -95,59 +111,40 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal className="lg:col-span-7" delay={0.08}>
-            <Link
-              href={`/products/${inferGo.slug}`}
-              className="media-frame relative block aspect-[2/1]"
-              aria-label="Read about InferGo"
-            >
-              <Image
-                src={inferGo.image.src}
-                alt={inferGo.image.alt}
-                fill
-                sizes="(max-width: 1024px) 100vw, 58vw"
-                className="object-cover"
-              />
-            </Link>
+            {inferGo.image && (
+              <Link
+                href={`/products/${inferGo.slug}`}
+                className="media-frame relative block aspect-[2/1]"
+                aria-label="Read about InferGo"
+              >
+                <Image
+                  src={inferGo.image.src}
+                  alt={inferGo.image.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </Link>
+            )}
           </Reveal>
         </div>
       </section>
 
       <section className="page-shell section-space">
         <Reveal className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <p className="eyebrow">How the studio works</p>
-            <h2 className="section-title mt-6">Product thinking backed by hands-on engineering.</h2>
-          </div>
+          <h2 className="section-title lg:col-span-7">
+            Product thinking backed by hands-on engineering.
+          </h2>
           <p className="lede self-end lg:col-span-5 lg:text-base">
             Jatto is a product company first. We also take on a small number of technical
             partnerships where product judgment and careful delivery matter.
           </p>
         </Reveal>
-        <div className="border-border mt-16 grid border-y md:grid-cols-3">
-          {[
-            [
-              '01',
-              'Find the real job',
-              'Start with the decision, handoff, or repeated task that software should improve.',
-            ],
-            [
-              '02',
-              'Build the narrow path',
-              'Make the successful customer path obvious before adding breadth or automation.',
-            ],
-            [
-              '03',
-              'Ship with evidence',
-              'Use real workflows, clear release states, and measured iteration to guide the product.',
-            ],
-          ].map(([number, title, body]) => (
-            <Reveal
-              key={number}
-              className="border-border border-b px-1 py-8 last:border-b-0 md:border-b-0 md:border-l md:px-8 md:first:border-l-0"
-            >
-              <span className="eyebrow">{number}</span>
-              <h3 className="mt-8 text-2xl font-semibold tracking-[-0.045em]">{title}</h3>
-              <p className="text-muted mt-4 leading-7">{body}</p>
+        <div className="mt-14 grid gap-4 md:grid-cols-3">
+          {principles.map((principle) => (
+            <Reveal key={principle.title} className="bg-surface rounded-3xl p-7 sm:p-8">
+              <h3 className="text-2xl font-semibold tracking-[-0.045em]">{principle.title}</h3>
+              <p className="text-muted mt-4 leading-7">{principle.body}</p>
             </Reveal>
           ))}
         </div>

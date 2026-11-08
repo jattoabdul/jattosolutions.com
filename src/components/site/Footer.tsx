@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="border-border bg-surface border-t">
+    <footer className="bg-surface">
       <div className="page-shell grid gap-12 py-12 md:grid-cols-[1.4fr_1fr] md:py-16">
         <div>
           <Link href="/" className="text-xl font-semibold tracking-[-0.04em]">
@@ -17,8 +17,7 @@ export function Footer() {
           </a>
         </div>
         <div className="grid grid-cols-2 gap-8 text-sm">
-          <nav aria-label="Footer">
-            <p className="eyebrow mb-4">Explore</p>
+          <nav aria-label="Site">
             <div className="flex flex-col items-start gap-3">
               <Link href="/products" className="text-link">
                 Products
@@ -31,8 +30,7 @@ export function Footer() {
               </Link>
             </div>
           </nav>
-          <div>
-            <p className="eyebrow mb-4">Elsewhere</p>
+          <nav aria-label="Elsewhere">
             <div className="flex flex-col items-start gap-3">
               <a
                 href={siteConfig.social.x}
@@ -59,18 +57,18 @@ export function Footer() {
                 GitHub
               </a>
             </div>
-          </div>
+          </nav>
         </div>
       </div>
-      <div className="border-border border-t">
-        <div className="page-shell text-muted flex flex-col gap-4 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <div className="page-shell text-muted flex flex-col gap-4 pt-2 pb-8 text-xs sm:flex-row sm:items-center sm:justify-between">
           <a
             href={siteConfig.personalSite.url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-link"
           >
-            Founder profile ↗ {siteConfig.personalSite.label}
+            Founder: Jatto Abdul, {siteConfig.personalSite.label} ↗
           </a>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/privacy" className="text-link">
