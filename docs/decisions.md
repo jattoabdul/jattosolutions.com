@@ -52,9 +52,9 @@
 - Rejected: "Product engineering for teams that need software to work in production."; "We build the software your team runs on."
 - Rests on: owner answer, 2026-11-08; plan Phase 1 candidates
 
-## 2026-11-08 · Fera and founder content ships as marked placeholders until the owner supplies it
+## 2026-11-08 · Fera content ships as a marked placeholder until the owner supplies it
 - Decided by: the owner
-- Why: Fera facts must be cleared with Fera first, and founder details and photo are not yet supplied; the layout can land now
+- Why: Fera facts must be cleared with Fera first; the layout can land now. (The founder block was a placeholder too, until the next entry)
 - Rejected: holding the whole Phase 1 change until content arrives; inventing facts
 - Rests on: owner answers, 2026-11-08. Placeholders live in `src/data/studio.ts` with `placeholder: true` and render a visible "Placeholder" tag. Do not deploy to production until they are replaced. `/work/fera` is not built
 
@@ -93,3 +93,9 @@
 - Why: the plan names the models (fixed scope, monthly retainer) but no figures; the good-fit and not-a-fit lists are drafted from the evaluation's positioning findings
 - Rejected: publishing prices or day rates without the owner
 - Rests on: plan Phase 1, Studio page item; `src/data/studio.ts`
+
+## 2026-11-08 · Founder block uses public content from jattoabdul.com, under the name "Jatto Abdul"
+- Decided by: the owner (use jattoabdul.com for the photo and details); wording by Claude
+- Why: the owner's own public site already states the role history and has a portrait; "Jatto Abdul" is the name used there, so the studio site matches it
+- Rejected: waiting for separate answers; "Abdulqahhar Jatto", the name the old Studio page used
+- Rests on: jattoabdul.com home and /about, read 2026-11-08; portrait copied to `public/founder/jatto-abdul.webp`. Highlights: TrustKarry founding engineer, Minerva Senior Software Engineer II (AML screening, Pergamon platform), Andela from 2017. Fera is left out of the founder block until Fera facts are cleared

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { founder } from '@/data/studio';
 import { PlaceholderTag } from '@/components/ui/PlaceholderTag';
 import { Reveal } from '@/components/ui/Reveal';
@@ -5,12 +6,15 @@ import { Reveal } from '@/components/ui/Reveal';
 export function FounderBlock() {
   return (
     <Reveal className="grid gap-10 md:grid-cols-[auto_1fr] md:gap-14">
-      {/* Initials tile until an approved photo is supplied. */}
-      <div
-        aria-hidden
-        className="border-border bg-wash text-accent grid size-32 place-items-center rounded-3xl border text-4xl font-semibold tracking-[-0.06em] sm:size-40"
-      >
-        {founder.initials}
+      <div className="border-border bg-wash size-40 overflow-hidden rounded-3xl border sm:size-48">
+        <Image
+          src={founder.photo.src}
+          alt={`Portrait of ${founder.name}`}
+          width={founder.photo.width}
+          height={founder.photo.height}
+          sizes="192px"
+          className="block size-full origin-[50%_30%] scale-[1.45] object-cover"
+        />
       </div>
       <div>
         <p className="eyebrow">Who leads the work</p>

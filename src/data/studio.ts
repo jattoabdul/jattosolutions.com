@@ -106,15 +106,16 @@ export const fera = {
   work: 'Placeholder: what we built or improved, and the main stack. Awaiting facts cleared with Fera.',
 };
 
+/** From the founder's public site, jattoabdul.com (home and /about), 2026-11-08. */
 export const founder = {
-  placeholder: true,
-  name: 'Abdulqahhar Jatto',
-  initials: 'AJ',
-  role: 'Founder. Placeholder: title and years of experience.',
+  placeholder: false,
+  name: 'Jatto Abdul',
+  role: 'Founder and engineer. Building software professionally since 2017.',
+  photo: { src: '/founder/jatto-abdul.webp', width: 800, height: 800 },
   highlights: [
-    'Placeholder: first concrete thing built or led.',
-    'Placeholder: second concrete thing built or led.',
-    'Placeholder: third concrete thing built or led.',
+    'Founding engineer at TrustKarry, a marketplace connecting senders with trusted travelers.',
+    'Senior Software Engineer II at Minerva, working on AML screening and the Pergamon platform.',
+    'Three years at Andela from 2017, building software for international client teams.',
   ],
   url: 'https://jattoabdul.com',
   urlLabel: 'jattoabdul.com',
